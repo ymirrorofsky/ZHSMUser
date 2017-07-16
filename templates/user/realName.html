@@ -1,0 +1,60 @@
+<ion-view view-title="个人信息" hide-nav-bar="true">
+	<ion-header-bar class="bar-calm header-back">
+		<div class="buttons">
+			<button class="button iconfont icon-back1 button-clear" ng-click="$ionicGoBack()">返回</button>
+		</div>
+		<h1 class="title">个人信息</h1>
+	</ion-header-bar>
+	<ion-content class="bodybg-normal">
+		<div class="real-count" ng-if="!personalSuccess">
+			<ul>
+				<li>
+					<label>登录账号</label>
+					<span class="common" ng-bind="globalInfo.user.mobile"></span>
+				</li>
+				<li>
+					<label>真实姓名</label>
+					<input type="text" placeholder="请输入真实姓名" maxlength="10" ng-model="info.realname">
+				</li>
+				<li>
+					<label class="flex_1">用户性别</label>
+					<div class="common sex">
+						<span ng-click="select(1)"><i ng-class="info.gender == 1 ? 'ion-ios-circle-filled':'ion-ios-circle-outline'"></i><em>男</em></span>
+						<span ng-click="select(2)"><i ng-class="info.gender == 2 ? 'ion-ios-circle-filled':'ion-ios-circle-outline'"></i><em>女</em></span>
+					</div>
+				</li>
+				<!--<li>
+					<label>手机号码</label>
+					<input type="text" placeholder="请输入手机号码" maxlength="18" ng-model="pageData.idcard">
+				</li>-->
+			</ul>
+			<div class="padding sure-btn">
+				<button class="button button-block button-calm" ng-click="submit()">确定</button>
+			</div>
+		</div>
+		<div class="real-count" ng-if="personalSuccess">
+			<ul>
+				<li>
+					<label>登录账号</label>
+					<span class="common" ng-bind="globalInfo.user.mobile"></span>
+				</li>
+				<li>
+					<label>真实姓名</label>
+					<span class="common" ng-bind="info.realname"></span>
+				</li>
+				<!--<li>
+					<label class="flex_1">用户性别</label>
+					<span class="common" ng-bind="sex[info.gender]"></span>
+					<!--<div class="common sex">
+						<span><i ng-class="info.gender == 1 ? 'ion-ios-circle-filled':'ion-ios-circle-outline'"></i><em>男</em></span>
+						<span><i ng-class="info.gender == 2 ? 'ion-ios-circle-filled':'ion-ios-circle-outline'"></i><em>女</em></span>
+					</div>-->
+				<!--</li>-->
+				<!--<li>
+					<label>身份证号</label>
+					<span class="common" ng-bind="pageData.idcard"></span>
+				</li>-->
+			</ul>
+		</div>
+	</ion-content>
+</ion-view>

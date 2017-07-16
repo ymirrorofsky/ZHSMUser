@@ -1,0 +1,36 @@
+<ion-view view-title="提现记录" hide-nav-bar="true" hide-back-button="true">
+	<ion-header-bar class="bar-assertive header-back">
+		<div class="buttons">
+			<button class="button iconfont icon-back1 button-clear" ng-click="$ionicGoBack()">返回</button>
+		</div>
+		<h1 class="title">提现记录</h1>
+	</ion-header-bar>
+	<div class="bar bar-subheader" style="padding: 0;">
+		<div class="row">
+			<div class="col" ng-click="active(1)" ng-class="{'active': select == 1}">提现申请中</div>
+			<div class="col" ng-click="active(2)" ng-class="{'active': select == 2}">提现完成</div>
+		</div>
+	</div>
+	<ion-content class="bodybg-normal" style="top:88px">
+		<ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"></ion-refresher>
+
+		<!--<div class="s-empty"></div>-->
+		<div class="common-empty" ng-if="orderEmpty">什么也没有...</div>
+		<div class="yd-repo-list" ng-if="!orderEmpty">
+			<ul>
+				<li ng-repeat="item in repoList" ui-sref="my.repoInfo({id:item.id})">
+					<a href="javascript:" class="flex">               
+						<p class="flex_1" ng-if="select == 1" style='line-height:40px'>申请中</p>
+						<p class="flex_1" ng-if="select == 2" style='line-height:40px'>已完成</p>
+						<span class="num"><i class="iconfont icon-dou-copy energized"></i><i ng-bind="item.takeMoney"></i></span>
+						<span ng-bind="item.createtime*1000 | date:'yyyy-MM-dd HH:mm' || '17:35'" ng-if="select == 1"></span>
+						<span ng-bind="item.updatetime*1000 | date:'yyyy-MM-dd HH:mm' || '17:35'" ng-if="select == 2"></span>
+					</a>
+				</li>
+			</ul>
+		</div> 
+
+		<ion-infinite-scroll ng-if="!noMore" on-infinite="loadMore()" distance="-1%" immediate-check="false">
+		</ion-infinite-scroll>
+	</ion-content>
+</ion-view>

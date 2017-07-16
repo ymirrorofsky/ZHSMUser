@@ -1,0 +1,39 @@
+<ion-view view-title="激励信使豆" hide-nav-bar="true" hide-back-button="true">
+	<ion-header-bar class="bar-assertive header-back">
+		<div class="buttons">
+			<button class="button iconfont icon-back1 button-clear" ng-click="$ionicGoBack()">返回</button>
+		</div>
+		<h1 class="title" ng-if="type == 1" ng-click="toggle()">激励信使豆<i class="iconfont icon-unfold"></i></h1>
+		<h1 class="title" ng-if="type == 2">推荐信使豆</h1>
+	</ion-header-bar>
+	<div class="yd-love-type" ng-if="myVar">
+		<span class="triangle-up"></span>
+		<p ng-repeat="item in totalBean.roleInfo" ng-bind = item.title ng-click="selectRole(item.role)"></p>
+	</div>
+	<div class="bar bar-subheader" style="padding: 0;">
+		<div class="row">
+			<div class="col"  ng-repeat="item in totalBean.rebateInfo" ng-click="selectBili(item.shopsRebateType)" ng-class="{'active': selected == item.shopsRebateType}">{{item.title}}</div>
+		</div>
+	</div>
+	<ion-content class="bodybg-normal">
+		<ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"></ion-refresher>
+
+		<div class="s-empty"></div>
+		<div class="s-list-money">
+			<h3><span ng-if="type == 1">累计激励信使豆</span><span ng-if="type == 2">累计推荐信使豆</span></h3>
+			<h3 ng-bind="totalBean.all_price"></h3>
+		</div>
+		<div class="row s-list-det">
+			<div class="col">日期</div>
+			<div class="col">信使豆</div>
+		</div>
+		<div class="common-empty" ng-if="orderEmpty">什么也没有...</div>
+		<div class="row s-list-det" ng-repeat="item in totalBean.list" ng-if="!orderEmpty">
+			<div class="col" ng-bind="item.showTime*1000 | date:'yyyy-MM-dd HH:mm'"></div>
+			<div class="col" ng-bind="item.bean"></div>
+		</div>
+
+		<ion-infinite-scroll ng-if="!noMore" on-infinite="loadMore()" distance="-1%" immediate-check="false">
+		</ion-infinite-scroll>
+	</ion-content>
+</ion-view>

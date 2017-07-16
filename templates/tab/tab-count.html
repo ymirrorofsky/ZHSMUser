@@ -1,0 +1,73 @@
+<ion-view view-title="统计" hide-nav-bar="true" hide-back-button="true">
+	<!--<ion-header-bar class="bar-assertive">-->
+		<!--<h1 class="title">统计</h1>-->
+	<!--</ion-header-bar>-->
+	<ion-content class="bodybg-normal">
+		<div class="count-header">
+			<div class="turnover">
+				<h4 ng-bind="countInfo.settled[1].count || 0.00"></h4>
+				<p>{{countInfo.settled[1].title}}(万元)</p>
+			</div>
+			<ul class="user clearfix">
+				<li>
+					<p ng-bind="countInfo.settled[2].count || 0"></p>
+					<p ng-bind="countInfo.settled[2].title"></p>
+				</li>
+				<li>
+					<p ng-bind="countInfo.settled[3].count || 0"></p>
+					<p ng-bind="countInfo.settled[3].title"></p>
+				</li>
+			</ul>
+		</div>
+
+		<ul class="count-yesterday clearfix">
+			<li class="text-overflow_1"><i class="iconfont icon-point" style="color: #448af1"></i><span ng-bind="countInfo.yesterday[1].title"></span><b style="color: #448af1">{{countInfo.yesterday[1].count || 0.00}} (万元)</b></li>
+			<li class="text-overflow_1"><i class="iconfont icon-point" style="color: #ff6600"></i><span ng-bind="countInfo.yesterday[2].title"></span><b style="color: #ff6600">{{countInfo.yesterday[2].count || 0.00}} (颗)</b></li>
+		</ul>
+
+		<div class="count-tabs">
+			<ul class="h clearfix">
+				<li ng-click="selectTab(0)" ng-class="{'cur': curTab == 0}">用户爱心日值</li>
+				<li ng-click="selectTab(1)" ng-class="{'cur': curTab == 1}">商家爱心日值</li>
+				<li ng-click="selectTab(2)" ng-class="{'cur': curTab == 2}">商家销售排行</li>
+			</ul>
+			<ion-slide-box on-slide-changed="slideHasChanged($index)" show-pager="false" class="c">
+				<ion-slide>
+					<div class="yesterday-loveRatio">
+						<p>激励日期：{{countInfo.yesterdayTime}}</p>
+						<ul>
+							<li ng-repeat="item in countInfo.userLove">
+								<p class="positive"><i class="iconfont icon-favorfill positive"></i><br>{{item.title}}</p>
+								<p class="positive">
+									<i class="iconfont icon-likefill positive"></i><i class="iconfont icon-xieti1 positive"></i><i class="iconfont icon-dou-copy"></i><span ng-bind="item.count || 0.00"></span>
+								</p>
+							</li>
+						</ul>
+					</div>
+				</ion-slide>
+				<ion-slide>
+					<div class="yesterday-loveRatio">
+						<p>激励日期：{{countInfo.yesterdayTime}}</p>
+						<ul>
+							<li ng-repeat="item in countInfo.shopsLove">
+								<p class="positive"><i class="iconfont icon-favorfill positive"></i><br>{{item.title}}</p>
+								<p class="positive"><i class="iconfont icon-likefill positive"></i><i class="iconfont icon-xieti1 positive"></i><i class="iconfont icon-dou-copy"></i><span ng-bind="item.count || 0.00"></span></p>
+							</li>
+						</ul>
+					</div>
+				</ion-slide>
+				<ion-slide>
+					<div class="yd-shops-ranking">
+						<ul>
+							<li class="flex" ng-repeat="item in countInfo.shopsList">
+								<i ng-bind="$index+1" ng-class="{'first': $index<3}"></i>
+								<p class="text-overflow_1 flex_1" ng-bind="item.shopsName"></p>
+								<span class="flex_1">{{item.countPrice}}元</span>
+							</li>
+						</ul>
+					</div>
+				</ion-slide>
+			</ion-slide-box>
+		</div>
+	</ion-content>
+</ion-view>

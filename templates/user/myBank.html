@@ -1,0 +1,26 @@
+<ion-view view-title="我的银行卡" hide-nav-bar="true">
+	<ion-header-bar class="bar-assertive header-back">
+		<div class="buttons">
+			<button class="button iconfont icon-back1 button-clear" ng-click="$ionicGoBack()">返回</button>
+		</div>
+		<h1 class="title">我的银行卡</h1>
+		<div class="buttons">
+			<button class="button ion-plus button-clear" ng-click="openModal()"></button>
+		</div>
+	</ion-header-bar>
+	<ion-content class="bodybg-normal">
+		<ion-list>
+			<ion-item class="item-avatar item-icon-right"  ng-repeat="item in bankList" ng-click="selectBank(item.id)">
+				<img src="img/wuimg.png">
+				<h3 ng-bind="item.bankName"></h3>
+				<p ng-bind="item.bankCard"></p>
+				<i class="icon ion-ios-checkmark-outline balanced" ng-if="isDefault == item.id"></i>
+				<ion-option-button class="button-positive ion-ios-trash-outline" style="font-size: 35px;" ng-click="removeBank(item.id)"></ion-option-button>
+			</ion-item>
+		</ion-list>
+	</ion-content>
+	<ion-footer-bar>
+		<button class="button button-assertive"  style="width: 100%;" ng-click="submitBankType()">确定</button>
+	</ion-footer-bar>
+</ion-view>
+

@@ -1,0 +1,74 @@
+<ion-view view-title="商家中心" hide-nav-bar="true">
+	<ion-header-bar class="bar-calm header-back">
+		<div class="buttons">
+			<button class="button iconfont icon-back1 button-clear" ng-click="$ionicGoBack()">返回</button>
+		</div>
+		<h1 class="title">商家中心</h1>
+	</ion-header-bar>
+	<!--<ion-content class="bodybg-normal">-->
+	<!--</ion-content>-->
+
+	<ion-content class="has-header content_ccc" overflow-scroll="false">
+		<div class="h10ccc"></div>
+		<ul class="t_mess_list _h10">
+			<li ui-sref="my.myorderlist">
+				<a href="" class="flex">
+					<b class="ion-person-stalker t_icon"></b>
+					<h3 class="flex_1">订单信息</h3>
+					<i class="ion-ios-arrow-right t_arrow_right"></i>
+				</a>
+			</li>
+			<li ui-sref="my.getcashinfo">
+				<a href="" class="flex">
+					<b class="ion-ribbon-b t_icon"></b>
+					<h3 class="flex_1">提现信息</h3>
+					<i class="ion-ios-arrow-right t_arrow_right"></i>
+				</a>
+			</li>
+			<li ui-sref="my.account">
+				<a href="" class="flex">
+					<b class="ion-locked t_icon"></b>
+					<h3 class="flex_1">提现中心</h3>
+					<i class="ion-ios-arrow-right t_arrow_right"></i>
+				</a>
+			</li>
+			<li ui-sref="my.accountinfo">
+				<a href="" class="flex">
+					<b class="ion-locked t_icon"></b>
+					<h3 class="flex_1">资金信息</h3>
+					<i class="ion-ios-arrow-right t_arrow_right"></i>
+				</a>
+			</li>
+		</ul>
+
+		<ul class="t_mess_list">
+
+			<li ng-click="checkUpdate()">
+				<a href="" class="flex">
+					<b class="ion-upload t_icon"></b>
+					<h3 class="flex_1">客服中心</h3>
+					<i class="ion-ios-arrow-right t_arrow_right"></i>
+				</a>
+			</li>
+
+			<li ui-sref="aboutus">
+				<a href="" class="flex">
+					<b class="ion-happy-outline t_icon"></b>
+					<h3 class="flex_1">关于同城百家</h3>
+					<h3 class="t_arrow_right">我要合作</h3>
+					<i class="ion-ios-arrow-right t_arrow_right"></i>
+				</a>
+			</li>
+
+		</ul>
+	</ion-content>
+
+
+	<!--<ion-footer-bar>-->
+		<!--<div class="t_mess_btn" ng-click="logout()">-->
+			<!--<button class="btn">安全退出</button>-->
+		<!--</div>-->
+	<!--</ion-footer-bar>-->
+
+</ion-view>
+

@@ -1,0 +1,47 @@
+<ion-view view-title="商品分类" hide-nav-bar="true" hide-back-button="true">
+	<ion-header-bar style="padding:0;">
+		<div class="category-header flex">
+			<i class="icon ion-chevron-left" ng-click="$ionicGoBack()"></i>
+			<div class="flex_1 search">
+				<i class="iconfont icon-search" ng-click="searchShop()"></i>
+				<input type="text" placeholder="搜索" ng-model="keywords" ng-model-options="{debounce:300}" ng-enter="searchShop()">
+			</div>
+		</div>
+	</ion-header-bar>
+	<ion-content style="margin-top:4px;">
+		<ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"></ion-refresher>
+
+		<div class="home-shops-list search-list">
+			<ul class="clearfix">
+				<li class="flex" ng-repeat="goods in pageData.shopsList" ui-sref="shops.shopsInfo({spid:goods.id})">
+					<img ng-src="{{goods.logo || 'img/wuimg.png'}}">
+					<div class="info clearfix flex_1">
+						<h3 class="title flex">
+							<p class="text-overflow_1" ng-bind="goods.title"></p><i>商</i></h3>
+						<!--<div class="middle">
+							<i class="iconfont icon-favorfill" ng-if="goods.followXin == 1 || goods.followXin == 2 || goods.followXin == 3 || goods.followXin == 4 || goods.followXin == 5"></i>
+							<i class="iconfont icon-favorfill" ng-if="goods.followXin == 2 || goods.followXin == 3 || goods.followXin == 4 || goods.followXin == 5"></i>
+							<i class="iconfont icon-favorfill" ng-if="goods.followXin == 3 || goods.followXin == 4 || goods.followXin == 5"></i>
+							<i class="iconfont icon-favorfill" ng-if="goods.followXin == 4 || goods.followXin == 5"></i>
+							<i class="iconfont icon-favorfill" ng-if="goods.followXin == 5"></i>
+							<span>{{goods.followNum}}赞</span>
+						</div>-->
+						<div class="middle">
+							<div class="bottom flex">
+								<span class="indus">{{goods.categoryName}}</span>
+							</div>
+						</div>
+						<div class="bottom flex">
+							<p class="s-addrerss text-overflow_1 flex_1">{{goods.birthInfo}}</p>
+							<span class="distance">{{goods.distance}}</span>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+
+		<ion-infinite-scroll ng-if="noMore && !refreshing" on-infinite="loadMoreGoods()" distance="-1%" icon="" immediate-check="false"
+			icon="ion-load-d"></ion-infinite-scroll>
+
+	</ion-content>
+</ion-view>

@@ -1,0 +1,121 @@
+<!--<link href="../../css/ionic.app.css" rel="stylesheet">-->
+
+<ion-view view-title="订单" hide-nav-bar="false" hide-back-button="true">
+
+	<ion-header-bar class="bar-assertive">
+		<div class="bar bar-header bar-assertive">
+			<h1 class="title">同城百家</h1>
+		</div>
+	</ion-header-bar>
+	<ion-content>
+
+		<a class="item  item-icon-right" ui-sref="shops.orderList({type:'user'})">
+			我的订单
+			<span class="item-note">
+			  订单管理
+			</span>
+			<i class="icon ion-ios-arrow-right"></i>
+		</a>
+		<div class="my-order my-box">
+			<ul class="clearfix">
+				<li ui-sref="dapp.order"><i class="iconfont icon-jilu"></i><span>全部</span></li>
+				<li ui-sref="dapp.order({status:0})"><i class="iconfont icon-pay"><sup ng-if="pageInfo.orderNumOne > 0" ng-bind="pageInfo.orderNumOne"></sup></i><span>待付款</span></li>
+				<li ui-sref="dapp.order({status:1})"><i class="iconfont icon-send"><sup ng-if="pageInfo.orderNumTwo > 0" ng-bind="pageInfo.orderNumTwo"></sup></i><span>待核销</span></li>
+				<li ui-sref="dapp.order({status:2})"><i class="iconfont icon-deliver"><sup ng-if="pageInfo.orderNumThree > 0" ng-bind="pageInfo.orderNumThree"></sup></i><span>已完成</span></li>
+				<li ui-sref="dapp.order({status:4})"><i class="iconfont icon-community"><sup ng-if="pageInfo.orderNumFour > 0" ng-bind="pageInfo.orderNumFour"></sup></i><span>待评价</span></li>
+			</ul>
+		</div>
+
+		<ion-label>最近订单</ion-label>
+
+		<div class="order-list" ng-repeat="single in shopsdetail.list">
+			<div class="order-item" data-orderId='{{single.orderId}}'>
+				<!--<div ui-sref="user.orderDetail({'orderId':single.orderId})">
+            <div class="order-count">
+              <ul>
+                <li ><img ng-src="{{single.thumb || 'img/wuimg.png'}}" ></li>
+              </ul>
+              <i class="iconfont icon-right"></i>
+            </div>
+          </div>-->
+
+				<div class="shop-order-list">
+					<ul>
+						<li>
+							<a ui-sref="shops.ordersubInfo({id:single.id, type: type})">
+								<img ng-src="{{single.thumb}}" style="width: 70px;height: 70px;float: left;margin: -5px 10px 0 0px;">
+								<div class="flex">
+									<p class="flex_1 text-overflow_1" style="font-weight:600;font-size: 16px;color: #000000;">{{single.goodsName}}</p><span><em class="positive" ng-bind="statusName[single.orderStatus]"></em></span>
+								</div>
+								<div class="flex bottom">
+									<p class="flex_1" style="color: #999999;font-size: 12px;">总价：￥{{single.orderPrice}} </p>
+								</div>
+								<div style="color: #999999;font-size: 12px;">
+									<i>数量：{{single.num||1}}</i>
+								</div>
+							</a>
+							<em ui-sref='shops.pay' class="commonpay{{single.payStatus}}" style="float: right; border: solid 1px #007AFF;color: #007AFF;width: 60px;height: 30px;line-height: 30px;text-align: center;margin-top: -40px;margin-right: 15px;">付款</em>
+							<em ui-sref='shops.evaluate' class="commoneval{{single.payStatus}}">评价</em>
+
+							<!--<em ui-sref='shops.pay' style="float: right; border: solid 1px #007AFF;color: #007AFF;width: 60px;height: 30px;line-height: 30px;text-align: center;margin-top: -40px;margin-right: 15px;" ng-bind="orderAct[single.payStatus]"></em>
+				-->
+						</li>
+						<!--<li ui-sref="shops.orderInfo({id:item.id, type: type})" >
+					<a href="javascript:">
+						<div class="flex">
+							<img ng-src="{{item.thumb}}"/>
+							<p class="flex_1 text-overflow_1">订单编号：{{item.orderId}}</p><span>状态：<em class="positive" ng-bind="statusName[item.orderStatus]"></em></span></div>
+						<div class="flex bottom"><p class="flex_1">订单金额：{{item.orderPrice}}元 <i>数量：{{item.num||1}}</i></p><span>{{item.createtime*1000 | date:'yyyy-MM-dd HH:mm'}}</span></div>
+					</a>
+				</li>-->
+					</ul>
+				</div>
+
+				<!--<div class="order-btn clearfix">
+           <span class="cancel"  ng-click="delete(list.orderId)">删除订单</span>
+            <span class="pay" ng-click="payment(list.payType,list.orderId)">立即支付</span>
+            <span class="cancel" ng-click="cancel(list.orderId)">取消订单</span>
+          </div>-->
+
+			</div>
+		</div>
+
+		<!--<ion-label>我的收藏</ion-label>
+
+      <div class="common-empty" ng-if="1==1">什么也没有...</div>-->
+
+		<div class="ordertc-list">
+				<h2>最近浏览</h2>
+				<!--<a class="button icon ion-ios-arrow-right"></a>-->
+				<div class="home-shops-list">
+				<ul class="clearfix">
+					<li class="flex" ng-repeat="good in shopsdetail.goods" ui-sref="goods.goodsInfo({id:good.id})">
+						<img ng-src="{{good.thumb || 'img/wuimg.png'}}">
+						<div class="info clearfix flex_1">
+							<h3 class="title flex"><p class="text-overflow_1" ng-bind="good.goodsName"></p></h3>
+							<div class="middle">
+							</div>
+							<div class="bottom flex">
+								<span class="indus">{{good.goodsDescwwww}}</span>
+								<p class="s-addrerss text-overflow_1 flex_1">{{good.goodsTag}}</p>
+								<span class="distance">{{good.marketprice}}</span>
+							</div>
+						</div>
+						<p style="font-size: 16px;margin: 20px 15px;color: #000000;" ng-if="shopsdetail.goods==''">
+				暂无最近浏览记录
+			</p>
+					</li>
+				</ul>
+			</div>
+			
+
+		</div>
+		<ion-infinite-scroll ng-if="pageMsg.loadMore" on-infinite="method.loadMore()" distance="1%" icon="" immediate-check="false"></ion-infinite-scroll>
+	</ion-content>
+	<!--</div>-->
+
+	<div ng-if="pageMsg.bool._city._s" ng-include="src='templates/shops/province.html'" class="t_city_op"></div>
+	<!--省市县-->
+	<div ng-if="pageMsg.bool._city._c" ng-include="src='templates/shops/city.html'" class="t_city_op"></div>
+	<div ng-if="pageMsg.bool._city._x" ng-include="src='templates/shops/county.html'" class="t_city_op"></div>
+</ion-view>

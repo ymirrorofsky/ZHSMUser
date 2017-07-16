@@ -1,0 +1,41 @@
+<ion-view title="订单列表" hide-nav-bar="true" hide-back-button="true">
+
+	<ion-header-bar class="bar-calm header-back" style='border: none;'>
+
+		<h1 class="title">订单列表</h1>
+	</ion-header-bar>
+
+	<ion-content class="bodybg-normal">
+		<ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"></ion-refresher>
+
+		<!--<div class="common-empty" ng-if="orderEmpty">什么也没有...</div>-->
+		<div class="my-order orderlist-head">
+			<ul class="clearfix">
+				<li id="needall" ng-click="getNew({orderStatus:''})"><i class="iconfont icon-jilu"></i><span>全部</span></li>
+				<li id="needmoney" ng-click="getNew0({orderStatus:0})"><i class="iconfont icon-pay"><sup ng-if="pageInfo.orderNumOne > 0" ng-bind="pageInfo.orderNumOne"></sup></i><span >待付款</span></li>
+				<li id="needzero" ng-click="getNew2({orderStatus:2})"><i class="iconfont icon-deliver"><sup ng-if="pageInfo.orderNumThree > 0" ng-bind="pageInfo.orderNumThree"></sup></i><span>已完成</span></li>
+			</ul>
+		</div>
+		<div class="shop-order-list orderlist-list" >
+			<ul ng-repeat="item in orderList">
+				<li >
+					<a ui-sref="shops.ordersubInfo({id:item.id, type:type,orderId:item.orderId})">
+						<img ng-src="{{item.thumb}}" style="width: 65px;height: 65px;float: left;margin: 0px 10px 0;">
+						<div class="flex">
+							<p class="flex_1 text-overflow_1" style="font-weight:600;font-size: 16px;color: #000000;">{{item.goodsName}}</p><span><em class="positive" ng-bind="statusName[item.orderStatus]"></em></span>
+						</div>
+						<div class="flex bottom"><p class="flex_1" style="color: #999999;font-size: 12px;">总价：￥{{item.orderPrice}} </p></div>
+						<div style="color: #999999;font-size: 12px;">
+							<i>数量：{{item.num||1}}</i>
+						</div>
+					</a>
+					<em ui-sref='shops.orderInfo({id:item.id})' class="commonpay{{item.payStatus}}" >付款</em>
+				    <em ui-sref='shops.evaluate' class="commoneval0 commoneval{{item.orderStatus+item.isComment}}">评价</em>
+				</li>
+			</ul>
+		</div>
+
+		<ion-infinite-scroll ng-if="!noMore" on-infinite="loadMore()" distance="-1%" immediate-check="false">
+		</ion-infinite-scroll>
+	</ion-content>
+</ion-view>

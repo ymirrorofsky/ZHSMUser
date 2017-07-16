@@ -1,0 +1,72 @@
+<ion-view title="商家详情" hide-nav-bar="true" hide-back-button="true">
+
+	<ion-header-bar class="bar-calm header-back">
+		<div class="buttons">
+			<button class="button iconfont icon-back1 button-clear" ng-click="$ionicGoBack()">返回</button>
+		</div>
+		<h1 class="title">商家详情</h1>
+	</ion-header-bar>
+
+	<ion-content>
+		<ion-slide-box delegate-handle="slideimgs" does-continue="true" show-pager="true">
+			<ion-slide ng-repeat="img in shopsdetail.slide">
+				<img ng-src="{{img}}" width="100%" class="banner-img">
+			</ion-slide>
+		</ion-slide-box>
+		<div class="shops-detai-header" ng-if="!shopsdetail.slide">
+			<img src="{{shopsdetail.logo || 'img/wuimg.png'}}" style='max-height:220px'>
+		</div>
+		<div class="shops-detai-middle">
+			<div class="tit">
+				<h3 ng-bind="shopsdetail.title"></h3>
+				<!--<p class="middle">
+					<i class="iconfont icon-favorfill" ng-if="shopsdetail.followXin == 1 || shopsdetail.followXin == 2 || shopsdetail.followXin == 3 || shopsdetail.followXin == 4 || shopsdetail.followXin == 5"></i>
+					<i class="iconfont icon-favorfill" ng-if="shopsdetail.followXin == 2 || shopsdetail.followXin == 3 || shopsdetail.followXin == 4 || shopsdetail.followXin == 5"></i>
+					<i class="iconfont icon-favorfill" ng-if="shopsdetail.followXin == 3 || shopsdetail.followXin == 4 || shopsdetail.followXin == 5"></i>
+					<i class="iconfont icon-favorfill" ng-if="shopsdetail.followXin == 4 || shopsdetail.followXin == 5"></i>
+					<i class="iconfont icon-favorfill" ng-if="shopsdetail.followXin == 5"></i>
+				</p>-->
+			</div>
+
+			<div class="address common">
+				<a class="tel" href="tel:{{shopsdetail.mobile}}"><i class="iconfont ion-android-call"></i></a>
+				<a class="flex" ng-href="" ng-disabled='!shopsdetail.locationUrl' ng-click="showAddress(shopsdetail.locationUrl)" style="line-height:2em"> 
+					<i class="ion-android-pin calm"  style="color:#ff5b1f" ></i>
+					<!--<p class="text-overflow_2 flex_1">{{shopsdetail.birth}}{{shopsdetail.address}}</p>-->
+					<p class="text-overflow_2 flex_1" style="margin:0;line-height:2em">{{shopsdetail.birthInfo}}</p>
+				</a>
+			</div>
+
+			<!--<div class="address common" ng-disabled = '!shopsdetail.locationUrl' ng-click="showAddress(shopsdetail.locationUrl)">
+				<a class="flex" ng-href=""><i class="ion-android-pin calm"></i>
+				<p class="text-overflow_2 flex_1" ng-bind="shopsdetail.birthInfo || '暂无'"></p></a></div>-->
+			<!--<div class="common"><a class="flex" href="tel:{{shopsdetail.tel}}"><i class="icon ion-ios-telephone calm"></i>{{shopsdetail.tel || '暂无'}}</a></div>-->
+			<!--<div class="bodybg-normal" style="height: 10px;"></div>-->
+			<!--<div class="shop-descr common flex"><i class="ion-android-bookmark assertive"></i><p class="text-overflow_2 flex_1" ng-bind="shopsdetail.description"></p></div>-->
+
+			<div class="home-shops-list">
+				<ul class="clearfix">
+					<li class="flex" ng-repeat="good in shopsdetail.goods" ui-sref="goods.goodsInfo({goodsNo:good.goodsNo,spid:good.spid})">
+						<img ng-src="{{good.thumbs.firstImg || 'img/goods1.jpg'}}">
+						<div class="info clearfix flex_1">
+							<h3 class="title flex"><p class="text-overflow_1 flex_1" ng-bind="good.goodsName"></p>
+							</h3>
+							<p class="text-overflow_1 flex shopsinfo-price">
+								<span>￥ <i>{{good.spe_price}}</i></span>门市价:{{good.marketprice}}</p>
+
+							<!--<div class="middle">
+								
+							</div>-->
+							<!--<div class="bottom flex">
+								<span class="indus">{{good.goodsDescwwww}}</span>
+								<p class="text-overflow_1 flex_1">{{good.goodsTag}}</p>
+								
+							</div>-->
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+	</ion-content>
+</ion-view>

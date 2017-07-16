@@ -1,0 +1,38 @@
+<ion-view view-title="我的邀请" hide-nav-bar="true">
+	<ion-header-bar class="bar-calm header-back">
+		<div class="buttons">
+			<button class="button iconfont icon-back1 button-clear" ng-click="$ionicGoBack()">返回</button>
+		</div>
+		<h1 class="title">我的邀请</h1>
+	</ion-header-bar>
+	<ion-content class="bodybg-normal">
+<div ng-if='invitaer'>
+	<a class="item item-thumbnail-right ">
+			<img src="img/headimg.jpg">
+			手机号：<span>{{invitaer.mobile}}</span>
+			<br/>
+			昵称：<span>{{invitaer.nickname}}</span>
+			<br/>
+			会员uid：<span>{{invitaer.uid}}</span>
+			<br/>
+			注册时间：<span>{{invitaer.createtime| date:'yyyy-MM-dd HH:mm'}}</span>
+		</a>
+</div>
+ <div class="" ng-if='!invitaer'>
+ 	<p style="padding: 10px 15px;background: #fff;">暂无邀请,邀请有收益！</p>
+ </div>
+		
+
+		<!--<a class="item item-thumbnail-right " href="">
+			<img src="img/headimg.jpg">
+			昵称：<span>Pretty Hate Machine</span>
+			<br/>
+			身份：<span>Nine Inch Nails</span>
+			<br/>
+			会员uid：<span>Nine Inch Nails</span>
+			<br/>
+			创建时间：<span>2016-12-12 10:33;33</span>
+		</a>-->
+	</ion-content>
+</ion-view>
+

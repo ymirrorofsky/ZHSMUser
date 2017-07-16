@@ -1,0 +1,31 @@
+<ion-view title="商家中心" hide-nav-bar="true" hide-back-button="true">
+
+	<ion-header-bar class="bar-assertive header-back">
+		<div class="buttons">
+			<button class="button iconfont icon-back1 button-clear" ui-sref="tab.my">返回</button>
+		</div>
+		<h1 class="title">商家中心</h1>
+	</ion-header-bar>
+
+	<ion-content class="bodybg-normal">
+		<div class="yd-apply-shop flex">
+			<img ng-src="{{shopsInfo.logo || 'img/avatar.jpg'}}">
+			<div class="flex_1 shopr">
+				<p ng-bind="shopsInfo.title"></p>
+				<p ng-bind="shopsInfo.birthInfo"></p>
+			</div>
+		</div>
+		<div class="my-bottom-nav">
+			<ul class="clearfix com">
+				<li ui-sref="shops.qrcode({spid:globalInfo.user.isShop})">
+					<i class="iconfont icon-erweima-copy assertive" ></i>
+					<p>商家二维码</p>
+				</li>
+				<li ui-sref="shops.orderList({type:'shops'})">
+					<i class="iconfont icon-dingdan2 assertive"></i>
+					<p>订单记录</p>
+				</li>
+			</ul>
+		</div>
+	</ion-content>
+</ion-view>

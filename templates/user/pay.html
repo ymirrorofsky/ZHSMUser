@@ -1,0 +1,36 @@
+<ion-view view-title="支付" hide-nav-bar="true">
+	<ion-header-bar class="bar-assertive header-back">
+		<div class="buttons">
+			<button class="button iconfont icon-back1 button-clear" ng-click="$ionicGoBack()">返回</button>
+		</div>
+		<h1 class="title">支付</h1>
+	</ion-header-bar>
+	<ion-content class="bodybg-normal">
+		<div class="yd-pay-header">
+			<img ng-src="{{shopsName.logo}}">
+			<h3 class="text-overflow_1">{{shopsName.title}}</h3>
+			<p class="text-overflow_1">{{shopsName.birthInfo}}</p>
+		</div>
+		<div class="yd-donate-count real-count">
+			<ul>
+				<li class="money">
+					<label>支付金额</label>
+					<input type="text" placeholder="请输入支付金额" ng-model="payInfo.money">
+					<i>元</i>
+				</li>
+			</ul>
+			<div class="yd-add-img">
+				<label>支付凭证</label>
+				<em class="iconfont icon-add" ng-click="uploadAvatar()"></em>
+				<i id="divImg"></i>
+			</div>
+			<div class="pay-bz flex padding" >
+				<textarea  rows="5" class="flex_1" placeholder="请输入备注信息" ng-model="payInfo.remark"></textarea>
+			</div>
+		</div>
+		<div class="padding sure-btn">
+			<button class="button button-block button-assertive" ng-click="sureSubmit()">确定</button>
+		</div>
+	</ion-content>
+</ion-view>
+

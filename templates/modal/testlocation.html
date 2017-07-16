@@ -1,0 +1,33 @@
+	<ion-view view-title="选择城市" hide-nav-bar="true">
+		<ion-header-bar class="bar-assertive header-back">
+			<div class="buttons">
+				<button class="button iconfont icon-back1 button-clear" ng-click="citySelectModal.hide();">返回</button>
+			</div>
+			<h1 class="title">选择城市</h1>
+		</ion-header-bar>
+
+		<ion-content class="bodybg-normal">
+			<div class="oto-address-header" style="background: #fff;color: #000;padding: 10px 10px 0;">
+				<div class="search">
+					<i class="iconfont icon-search" id="searchall"></i>
+					<input type="text" name="keyword" id="gsearch" ng-model="keywords"  placeholder="请输入城市名查询" class="ng-pristine ng-untouched ng-valid ng-empty" style="">
+				</div>
+			</div>
+
+			<div class="oto-curent-city category-header" style="background: #fff;color: #000;">
+				<span>当前:{{curPosition.city||'选择'}}</span>
+			</div>
+			<!-- 右边的ABCDEFG-->
+			<div class="city-select-quick">
+				<p ng-repeat="(x, city) in cityList" ng-bind="x" ng-click="quickSelect(x)"></p>
+			</div>
+			<!--下面的A 及其对应的地区名和过滤方法-->
+			<ion-scroll class="city-select-scroll" scroll-height delegate-handle="citySelectScroll">
+				<ul ng-repeat="(x, citys) in cityList">
+					<li ng-bind="x" id="{{x}}" class="index" ng-if="!keywords"></li>
+					<li ng-repeat="city in citys | filter:keywords" ng-bind="city.name" ng-click="selectCity(city.name)"></li>
+				</ul>
+			</ion-scroll>
+
+		</ion-content>
+	</ion-view>

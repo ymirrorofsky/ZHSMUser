@@ -1,0 +1,14 @@
+<ion-modal-view>
+	<ion-header-bar class="bar-assertive header-back">
+		<div class="buttons">
+			<button class="button iconfont icon-back1 button-clear" ng-click="reject.hide();">返回</button>
+		</div>
+		<h1 class="title">拒绝</h1>
+	</ion-header-bar>
+	<ion-content class="bodybg-normal">
+		<div class="yd-reject-con flex">
+			<textarea  rows="8" class="flex_1" placeholder="请输入拒绝原因" ng-model="orderInfo.refuseCont"></textarea>
+		</div>
+		<button class="button button-block button-assertive zl_btn_center" ng-click="refuse()">提交</button>
+	</ion-content>
+</ion-modal-view>

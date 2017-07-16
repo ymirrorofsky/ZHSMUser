@@ -1,0 +1,49 @@
+<ion-view view-title="我要提现" hide-nav-bar="true">
+    <ion-header-bar class="bar-calm header-back">
+        <div class="buttons">
+            <button class="button iconfont icon-back1 button-clear" ng-click="$ionicGoBack()">返回</button>
+        </div>
+        <h1 class="title">我要提现</h1>
+        <div class="buttons">
+            <button class="button button-clear" ui-sref="my.repoList">提现记录</button>
+        </div>
+    </ion-header-bar>
+    <ion-content class="bodybg-normal">
+        <div class="yd-donate-text padding">
+            提现须知： <br> 单次提现手续费: <span ng-bind="info.cost.count | currency:'￥'"></span><br> 单次提现最低额度: <span ng-bind="info.cost.cash_less | currency:'￥'"></span><br>单日提现最高额度:
+            <span ng-bind="info.cost.cash_most | currency:'￥'"></span>
+        </div>
+        <div class="yd-donate-count real-count">
+            <ul>
+                <li class="flex">
+                    <p class="flex_1">可提现金额</p>
+                    <span style="color: #ef4e3a;">{{info.money | currency:"￥"}}</span>
+                </li>
+                <li>
+                    <label>银行名称</label>
+					<span class="common" ng-bind="info.bankName || '中国建设银行'"  style="padding-left: 105px;color:gray"></span>
+				</li>
+                </li>
+                <li>
+                    <label>银行卡号</label>
+                    <input type="text" placeholder="请输入银行卡号" style="padding-left: 105px;" ng-model="info.bankCard" style="padding-left:106px">
+                </li>
+                <li>
+                    <label>银行开户姓名</label>
+                    <input type="text" placeholder="请输入银行开户姓名" ng-model="info.bankUserName" style="padding-left:106px">
+                </li>
+                <li>
+                    <label>银行预留手机号</label>
+                    <input type="text" placeholder="请输入银行预留手机号" ng-model="info.bankMobile" style="padding-left:106px">
+                </li>
+                <li>
+                    <label>提现金额</label>
+                    <input type="text" placeholder="请输入提现金额" ng-model="info.takeMoney" style="padding-left:106px">
+                </li>
+            </ul>
+            <div class="padding sure-btn">
+                <button class="button button-block button-calm" ng-click="submit()">申请</button>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

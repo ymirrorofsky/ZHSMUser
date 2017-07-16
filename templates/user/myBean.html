@@ -1,0 +1,99 @@
+<ion-view view-title="我的信使豆" hide-nav-bar="true">
+	<ion-header-bar class="bar-assertive header-back">
+		<div class="buttons">
+			<button class="button iconfont icon-back1 button-clear" ng-click="$ionicGoBack()">返回</button>
+		</div>
+		<h1 class="title">我的信使豆</h1>
+	</ion-header-bar>
+	<ion-content class="bodybg-normal">
+		<div class="yd-donate-count real-count">
+			<ul>
+				<li class="flex">
+					<p class="flex_1">普通信使豆</p>
+					<span ng-bind="myBean.beanNum || '0.00'"></span>
+				</li>
+				<!--<li class="flex">-->
+					<!--<p class="flex_1">代缴税信使豆</p>-->
+					<!--<span>0.00</span>-->
+				<!--</li>-->
+			</ul>
+		</div>
+
+		<ion-slide-box delegate-handle="slideimgs" >
+			<ion-slide>
+				<div class="yd-slide-bean">
+					<dl>
+						<dt>商家昨日激励</dt>
+						<dd class="flex">
+							<span><i class="iconfont icon-favorfill positive"></i></span>
+							<p class="flex_1">2<i class="iconfont icon-likefill positive"></i>*<span>0.02<i class="iconfont icon-dou-copy energized"></i>=</span></p>
+							<span>0.00<i class="iconfont icon-dou-copy energized"></i></span>
+						</dd>
+						<dd class="flex">
+							<span><i class="iconfont icon-favorfill positive"></i></span>
+							<p class="flex_1">2<i class="iconfont icon-likefill positive"></i>*<span>0.02<i class="iconfont icon-dou-copy energized"></i>=</span></p>
+							<span>0.00<i class="iconfont icon-dou-copy energized"></i></span>
+						</dd>
+						<dd class="flex">
+							<span><i class="iconfont icon-favorfill positive"></i></span>
+							<p class="flex_1">2<i class="iconfont icon-likefill positive"></i>*<span>0.02<i class="iconfont icon-dou-copy energized"></i>=</span></p>
+							<span>0.00<i class="iconfont icon-dou-copy energized"></i></span>
+						</dd>
+					</dl>
+				</div>
+			</ion-slide>
+			<ion-slide>
+				<div class="yd-slide-bean">
+					<dl>
+						<dt>零售商昨日激励</dt>
+						<dd class="flex">
+							<span><i class="iconfont icon-favorfill positive"></i></span>
+							<p class="flex_1">2<i class="iconfont icon-likefill positive"></i>*<span>0.02<i class="iconfont icon-qiadou energized"></i>=</span></p>
+							<span>0.00<i class="iconfont icon-qiadou energized"></i></span>
+						</dd>
+						<dd class="flex">
+							<span><i class="iconfont icon-favorfill positive"></i></span>
+							<p class="flex_1">2<i class="iconfont icon-likefill positive"></i>*<span>0.02<i class="iconfont icon-qiadou energized"></i>=</span></p>
+							<span>0.00<i class="iconfont icon-qiadou energized"></i></span>
+						</dd>
+						<dd class="flex">
+							<span><i class="iconfont icon-favorfill positive"></i></span>
+							<p class="flex_1">2<i class="iconfont icon-likefill positive"></i>*<span>0.02<i class="iconfont icon-qiadou energized"></i>=</span></p>
+							<span>0.00<i class="iconfont icon-qiadou energized"></i></span>
+						</dd>
+					</dl>
+				</div>
+			</ion-slide>
+		</ion-slide-box>
+
+		<div class="yd-donate-count real-count">
+			<ul>
+				<li class="flex" ui-sref="user.totalBean({type:1})">
+					<p class="flex_1">累计激励信使豆</p>
+					<span class="num-right">{{myBean.excitationBeanNum || '0.00'}}<i class="iconfont icon-right right-color"></i></span>
+				</li>
+				<li class="flex" ui-sref="user.totalBean({type:2})">
+					<p class="flex_1">累计推荐信使豆</p>
+					<span class="num-right">{{myBean.reUserBeanNum || '0.00'}}<i class="iconfont icon-right right-color"></i></span>
+				</li>
+				<li class="flex" ui-sref="user.giveList({type:2})">
+					<p class="flex_1">累计获赠信使豆</p>
+					<span class="num-right">{{myBean.receiveBeanNum || '0.00'}}<i class="iconfont icon-right right-color"></i></span>
+				</li>
+				<li class="flex" ui-sref="user.repoList({type:2})">
+					<p class="flex_1">累计回购信使豆</p>
+					<span class="num-right">{{myBean.withdrawBeanNum || '0.00'}}<i class="iconfont icon-right right-color"></i></span>
+				</li>
+				<li class="flex" ui-sref="user.giveList({type:1})">
+					<p class="flex_1">累计转赠信使豆</p>
+					<span class="num-right">{{myBean.giveBeanNum || '0.00'}}<i class="iconfont icon-right right-color"></i></span>
+				</li>
+				<li class="flex" ui-sref="user.donateList">
+					<p class="flex_1">累计直捐信使豆</p>
+					<span class="num-right">{{myBean.donateBeanNum || '0.00'}}<i class="iconfont icon-right right-color"></i></span>
+				</li>
+			</ul>
+		</div>
+	</ion-content>
+</ion-view>
+

@@ -1,0 +1,57 @@
+<ion-view view-title="累计消费金额" hide-nav-bar='true'>
+    <ion-header-bar class="bar-calm header-back">
+        <div class="buttons">
+            <button class="button iconfont icon-back1 button-clear" ng-click="$ionicGoBack()">返回</button>
+        </div>
+        <h1 class="title">累计消费金额</h1>
+    </ion-header-bar>
+
+    <ion-content class="bodybg-normal">
+        <ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"></ion-refresher>
+        <div class="my-header">
+            <ul class="clearfix">
+                <li>
+                    <div>
+                        <span ng-bind="financeInfo.count || 0"></span>
+                        <p>订单总数</p>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <span ng-bind="financeInfo.total || 0.00"></span>
+                        <p>消费总额</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="bodybg-normal" style="height: 10px;">
+            <div class="list list-inset" style="margin:10px;">
+                <label class="item item-input">请选择
+          <i class="icon ion-calendar placeholder-icon"></i>
+         <input type="date"  ng-model="finance.date" value='' ng-change="test()" ><span><p >{{finance.date | date:'yyyy-MM-dd'}}</p></span>
+                </label>
+            </div>
+            <div class="common-empty" ng-if="orderEmpty">什么也没有...</div>
+            <div class="row" ng-if="!orderEmpty">
+                <div class="col" style="flex:1.2">订单编号</div>
+                <div class="col" style="flex:1.8">商品名称</div>
+                <div class="col" style="flex:1.1">订单消费</div>
+            </div>
+            <div class="yd-mesg-coutent" ng-if="!orderEmpty" ng-repeat="item in financeInfo.list" style="font-size:12px">
+                <div class="row">
+                    <div class="col" style="flex:1.7">{{item.orderId}}</div>
+                    <div class="col" style="flex:1.9">{{item.goodsName}}</div>
+                    <div class="col" style="flex:1.5">{{item.user_give}}</div>
+                </div>
+            </div>
+
+
+        <ion-infinite-scroll ng-if="!noMore" on-infinite="loadMore()" distance="-1%" immediate-check="false">
+        </div>
+    
+
+
+    </ion-content>
+
+</ion-view>

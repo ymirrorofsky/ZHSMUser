@@ -1,0 +1,38 @@
+<ion-view view-title="订单详情" hide-nav-bar="true">
+	<ion-header-bar class="bar-calm header-back">
+		<div class="buttons">
+			<button class="button iconfont icon-back1 button-clear" ng-click="$ionicGoBack()">返回</button>
+		</div>
+		<h1 class="title">订单详情</h1>
+		<div class="buttons" ng-if="orderInfo.orderStatus == 0 && type == 'shops'" ng-click="rejectContent()">
+			<button class="button button-clear">拒绝</button>
+		</div>
+	</ion-header-bar>
+	<ion-content class="bodybg-normal">
+		<!--<div class="yd-shops-avatar">-->
+		<!--<img src="img/ali_logo.png">-->
+		<!--</div>-->
+		<hr style="background: #E0E0E0;height: 15px;margin:0;" />
+		<div class="yd-shops-order">
+			<h5>订单详情</h5>
+			<p>商&nbsp;品&nbsp;名&nbsp;称：<span ng-bind="orderInfo.goodsName || '暂无'"></span></p>
+			<p>商&nbsp;家&nbsp;名&nbsp;称：<span ng-bind="orderInfo.title.title || '暂无'"></span></p>
+			<p>商家手机号：<span ng-bind="orderInfo.phone.mobile || '暂无'"></span></p>
+			<p>下&nbsp;单&nbsp;时&nbsp;间：<span ng-bind="orderInfo.createtime*1000 | date:'yyyy-MM-dd HH:mm'"></span></p>
+			<p>订&nbsp;单&nbsp;编&nbsp;号：<span ng-bind="orderInfo.orderId || '暂无'"></span></p>
+			<p>订&nbsp;单&nbsp;金&nbsp;额：<span ng-bind="orderInfo.orderPrice || '暂无'"></span>元</p>
+			<p>状&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;态：<span ng-bind="statusName[orderInfo.orderStatus] || '暂无'"></span></p>
+			<!--<hr style="background: #E0E0E0;height: 10px;" />-->
+			<!--<h5>支付金额</h5>
+			<p>余&nbsp;额&nbsp;总&nbsp;量：{{baInfo.welBalance}}元</p>-->
+			<!--<p>本&nbsp;次&nbsp;抵&nbsp;用：<span ng-model="orderInfo.creditUse"></span>元</p>
+			<p>实&nbsp;付&nbsp;金&nbsp;额：<span ng-model="orderInfo.factMoney"></span>元</p>-->
+			<!--<p>本&nbsp;次&nbsp;抵&nbsp;用：{{baInfo.balanceUse||0}}元</p>
+			<p>实&nbsp;付&nbsp;金&nbsp;额：{{baInfo.factMoney||0}}元</p>-->
+			<!--<p>用&nbsp;户&nbsp;备&nbsp;注：{{orderInfo.remarks || '暂无'}}</p>
+			<p ng-if="type == 'user'">支&nbsp;付&nbsp;商&nbsp;家：{{orderInfo.shopsName}}</p>
+			<h3 ng-if="type == 'user'">状态：<span class="positive" ng-bind="statusName[orderInfo.orderStatus]"></span></h3>-->
+			<!--<h3 ng-if="type == 'shops'">支付金额：<span class="positive">{{orderInfo.orderPrice}}元</span></h3>-->
+		</div>
+	</ion-content>
+</ion-view>

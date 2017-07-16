@@ -1,0 +1,121 @@
+<ion-view view-title="附近商家" hide-nav-bar="true">
+	<div ng-if="pageMsg.bool._content">
+		<ion-header-bar class="bar-calm">
+			<div class="t_header">
+				<h1>附近商家</h1>
+				<!--<i class="ion-ios-search t_search" ui-sref="tab.shops_search"></i>-->
+			</div>
+			<div class="t_shops_filter">
+				<ul class="flex tlt">
+					<li class="flex_1 _one" ng-click="method.show._sort()"><h4>
+						<span ng-bind="pageMsg.titleShow._sort"></span>
+							<i class="ion-ios-arrow-down"></i></h4></li>
+					<li class="flex_1" ng-click="method.show._class()"><h4>
+						<span ng-bind="pageMsg.titleShow._class"></span>
+							<i class="ion-ios-arrow-down"></i></h4></li>
+					<li class="flex_1" ng-click="method.show._city()"><h4>
+						<span ng-bind="pageMsg.titleShow._city"></span>
+							<i class="ion-ios-arrow-down"></i>
+					</h4></li>
+					<!--<li class="flex_1"><h4>地址</h4><i class="ion-ios-arrow-down"></i></li>-->
+				</ul>
+				<div class="con">
+					<!--<div class="con1" ng-if="pageMsg.bool._sort">-->
+					<div class="con1" ng-if="pageMsg.bool._sort">
+						<!--<span class="_btn" ng-click="getSort_op(1,'距离排序')">距离排序</span>-->
+						<!--<span class="_btn" >距离排序</span>-->
+						<span class="_btn" ng-repeat="x in pageMsg.titleArr._sort"
+							  ng-click="method.get._sort(x.id,x.title)" ng-bind="x.title"></span>
+					</div>
+					<ul class="con2" ng-if="pageMsg.bool._class">
+						<li data-id="0" ng-click="method.get._class(0,'全部')"><span class="_btn">全部</span>
+							
+						</li>
+						<li ng-repeat="y in pageMsg.titleArr._class" ng-click="method.get._class(y.id,y.title)">
+							<span class="_btn" ng-bind="y.title">
+							</span>
+						</li>
+						<!--<li ng-repeat="x in pageMsg.titleArr._class" ng-click="method.get._class(x.id,x.title)">
+							<span class="_btn" ng-bind="x.title" ng-repeat=''>
+							</span>
+						</li>-->
+					</ul>
+				</div>
+			</div>
+		</ion-header-bar>
+
+		<ion-content overflow-scroll="false">
+      <div class="t_shopsList home-shops-list">
+        <ul class="clearfix">
+          <li class="flex" ng-repeat="goods in shops.shopsList"  ui-sref="shops.shopsInfo({spid:goods.id})">
+            <img ng-src="{{goods.logo || 'img/wuimg.png'}}">
+            <div class="info clearfix flex_1">
+              <h3 class="title flex"><p class="text-overflow_1 flex_1" ng-bind="goods.title"></p><i class="flex">商</i></h3>
+              <div class="middle">
+                <i class="iconfont icon-favorfill" ng-if="goods.followXin == 1 || goods.followXin == 2 || goods.followXin == 3 || goods.followXin == 4 || goods.followXin == 5"></i>
+                <i class="iconfont icon-favorfill" ng-if="goods.followXin == 2 || goods.followXin == 3 || goods.followXin == 4 || goods.followXin == 5"></i>
+                <i class="iconfont icon-favorfill" ng-if="goods.followXin == 3 || goods.followXin == 4 || goods.followXin == 5"></i>
+                <i class="iconfont icon-favorfill" ng-if="goods.followXin == 4 || goods.followXin == 5"></i>
+                <i class="iconfont icon-favorfill" ng-if="goods.followXin == 5"></i>
+               <!-- <span>{{goods.followNum}}赞</span>-->
+              </div>
+              <div class="bottom flex">
+                <span class="indus">{{goods.categoryName}}</span>
+                <p class="s-addrerss text-overflow_1 flex_1">{{goods.birthInfo}}</p>
+                <span class="distance">{{goods.distance}}</span>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+
+
+			<!--<div class="list">-->
+				<!--<a class="item item-thumbnail-left" href="#">-->
+				<!--<img src="img/banner.png">-->
+				<!--<h2>Pretty Hate Machine</h2>-->
+				<!--<p>Nine Inch Nails</p>-->
+			<!--</a>-->
+				<!--<a class="item item-thumbnail-left" href="#">-->
+					<!--<img src="img/banner.png">-->
+					<!--<h2>Pretty Hate Machine</h2>-->
+					<!--<p>Nine Inch Nails</p>-->
+				<!--</a>-->
+				<!--<a class="item item-thumbnail-left" href="#">-->
+					<!--<img src="img/banner.png">-->
+					<!--<h2>Pretty Hate Machine</h2>-->
+					<!--<p>Nine Inch Nails</p>-->
+				<!--</a>-->
+				<!--<a class="item item-thumbnail-left" href="#">-->
+					<!--<img src="img/banner.png">-->
+					<!--<h2>Pretty Hate Machine</h2>-->
+					<!--<p>Nine Inch Nails</p>-->
+				<!--</a>-->
+			<!--</div>-->
+
+
+			<!--<div class="t_shopsList">-->
+				<!--<ion-refresher pulling-text="下拉刷新" refreshing-icon="" on-refresh="method.reLoad()"></ion-refresher>-->
+				<!--<div class="common-empty" ng-if="pageInfo.data < 1">什么也没有</div>-->
+				<!--<div class="_list flex" ng-repeat="x in pageInfo.data" ui-sref="tab.shops_details({spid:x.id})">-->
+					<!--<div class="img">-->
+						<!--<img ng-src="{{x.logo}}" alt="">-->
+					<!--</div>-->
+					<!--<div class="flex_1 con">-->
+						<!--<h3 class="h text-overflow_1" ng-cloak>{{x.title}}</h3>-->
+						<!--<p class="t text-overflow_1">{{x.description}}</p>-->
+						<!--<p class="c"><span class="fl">{{x.categoryname}}</span>&lt;!&ndash;<span class="fr">距离：{{x.distance}}</span>&ndash;&gt;</p>-->
+					<!--</div>-->
+				<!--</div>-->
+			<!--</div>-->
+			<!--<ion-infinite-scroll ng-if="pageMsg.loadMore" on-infinite="method.loadMore()" distance="1%"-->
+								 <!--icon="" immediate-check="false"></ion-infinite-scroll>-->
+		</ion-content>
+	</div>
+
+	<div ng-if="pageMsg.bool._city._s" ng-include="src='templates/shop/province.html'" class="t_city_op"></div>
+	<!--省市县-->
+	<div ng-if="pageMsg.bool._city._c" ng-include="src='templates/shop/city.html'" class="t_city_op"></div>
+	<div ng-if="pageMsg.bool._city._x" ng-include="src='templates/shop/county.html'" class="t_city_op"></div>
+</ion-view>

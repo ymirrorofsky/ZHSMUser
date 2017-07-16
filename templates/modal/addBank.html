@@ -1,0 +1,42 @@
+<ion-modal-view>
+	<ion-header-bar class="bar-assertive header-back">
+		<h1 class="title">添加银行卡</h1>
+		<div class="buttons">
+			<button class="button button-clear" ng-click="addBank.hide()">关闭</button>
+		</div>
+	</ion-header-bar>
+	<ion-content class="bodybg-normal">
+		<div class="yd-donate-count real-count">
+			<ul>
+				<li>
+					<label>开户姓名</label>
+					<input type="text" placeholder="请输入开户姓名" ng-model="bankInfo.userName">
+				</li>
+				<li ng-click="showBank = !showBank">
+					<div class="flex beanType">
+						<p class="flex_1">转入银行</p>
+						<span>{{bankInfo.bankName || '请选择'}}<i class="iconfont icon-unfold right-color" ng-if="showBank" ></i><i class="iconfont icon-right right-color" ng-if="!showBank"></i></span>
+					</div>
+					<div class="bean" ng-hide="!showBank">
+						<p ng-click="bankType(x, item.title)" ng-repeat="(x, item) in bankInfo.bankType">{{item.title}}</p>
+					</div>
+				</li>
+				<li>
+					<label>身份证号</label>
+					<input type="text" placeholder="请输入身份证号" ng-model="bankInfo.idCard">
+				</li>
+				<li>
+					<label>银行卡号</label>
+					<input type="text" placeholder="请输入银行卡号" ng-model="bankInfo.bankCard">
+				</li>
+				<li>
+					<label>手机号码</label>
+					<input type="text" placeholder="请输入银行卡预留手机号" ng-model="bankInfo.mobile" maxlength="11">
+				</li>
+			</ul>
+			<div class="padding sure-btn">
+				<button class="button button-block button-assertive" ng-click="submitData()">确定</button>
+			</div>
+		</div>
+	</ion-content>
+</ion-modal-view>

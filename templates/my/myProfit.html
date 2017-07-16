@@ -1,0 +1,65 @@
+<ion-view view-title="我的收益" hide-nav-bar="true">
+	<ion-header-bar class="bar-calm header-back">
+		<div class="buttons">
+			<button class="button iconfont icon-back1 button-clear" ng-click="$ionicGoBack()">返回</button>
+		</div>
+		<h1 class="title">我的收益 </h1>
+	</ion-header-bar>
+
+	<ion-content class="bodybg-normal">
+		<ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"></ion-refresher>
+		<div class="count-header">
+			<div class="turnover" style="padding: 20px 0;">
+				<h4 ng-bind="moneyBackInfo.total.y_money_back || 0.00  " style="line-height: 40px;"></h4>
+				<p ng-click="showAlert()">积分(元)</p>
+			</div>
+			<div class="my-header" style="height:70px">
+				<ul class="clearfix" style="background: transparent;color:#fff">
+					<li style="width:33.333%">
+						<div>
+							<span ng-bind="moneyBackInfo.danyuan.y_sum_danyuan || 0" style="color:#fff"></span>
+							<p>消费总惠钻</p>
+						</div>
+					</li>
+					<li style="width:33.333%">
+						<div>
+							<span ng-bind="moneyBackInfo.danyuan.y_ing_back || 0.00" style="color:#fff"></span>
+							<p>进行中的惠钻</p>
+						</div>
+					</li>
+					<li ui-sref="user.excitation" style="width:33.333%">
+						<div>
+							<span ng-bind="moneyBackInfo.danyuan.y_back_danyuan || 0" style="color:#fff"></span>
+							<p>已完成的惠钻</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="bodybg-normal" style="height: 10px;">
+			<div class="list list-inset" style="margin:10px;">
+				<label class="item item-input">请选择
+          <i class="icon ion-calendar placeholder-icon"></i>
+         <input type="date"  ng-model="moneyBack.date" value='' ng-change="test()" id='time' style="padding-top:0px;"><span><p >{{moneyBack.date | date:'yyyy-MM-dd'}}</p></span>
+                </label>
+			</div>
+			<div class="common-empty" ng-if="orderEmpty">什么也没有...</div>
+			<div class="row" ng-if="!orderEmpty">
+				<div class="col">时间</div>
+				<div class="col">收益</div>
+			</div>
+			<div class="yd-mesg-coutent" ng-if="!orderEmpty">
+				<div class="row">
+					<div class="col ">{{moneyBackInfo.every.createtime*1000 | date:'yyyy-MM-dd HH:mm'}}</div>
+					<div class="col">{{moneyBackInfo.every.back_money}}</div>
+				</div>
+			</div>
+		</div>
+
+		<ion-infinite-scroll ng-if="noMore" on-infinite="loadMore()" distance="-1%" immediate-check="false">
+		</ion-infinite-scroll>
+
+	</ion-content>
+
+</ion-view>

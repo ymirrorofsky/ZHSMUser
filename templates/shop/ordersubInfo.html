@@ -1,0 +1,56 @@
+<ion-view title="订单详情" hide-nav-bar="true" hide-back-button="true">
+
+	<ion-header-bar class="bar-calm header-back" style='border: none;'>
+		<div class="buttons">
+			<button class="button iconfont icon-back1 button-clear" ng-click="$ionicGoBack()">返回</button>
+		</div>
+		<h1 class="title">订单详情</h1>
+	</ion-header-bar>
+
+	<ion-content class="bodybg-normal" style="padding-bottom: 20px; ">
+		<ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"></ion-refresher>
+		<div class="shop-order-list">
+			<div class="orderinfo-head">
+				<img ng-src='{{orderInfo.thumb}}' />
+				<h4 class='text-overflow_1'>{{orderInfo.goodsName}}</h4>
+				<p> </p>
+				<p><span>￥{{orderInfo.goodsPrice}}</span> </p>
+			</div>
+			<div class="shopsinfo">
+				<header>商家信息</header>
+				<div class="address">
+					<a class="phone"  href="tel:{{orderInfo.shop.tel}}">
+					<i class="icon   ion-android-call"></i>
+				</a>
+					<h4>{{orderInfo.shop.title}}</h4>
+					<p> 
+						{{pos.province}}{{pos.city}}{{pos.district}}{{orderInfo.shop.address}}</p>
+					<p><i class="icon  ion-location"> &nbsp;</i>
+						<b><1km</b><span>离我最近</span>
+					</p>
+				</div>
+				
+			</div>
+			<div class="orderinfo-list">
+				<header>订单详情</header>
+				<p><span>订单号：</span> {{orderInfo.orderId||11}}</p>
+				<p><span>下单时间：</span> {{orderInfo.createtime*1000|date:'yyyy-MM-dd HH:mm'}} </p>
+				<p><span>购买手机号：</span>  {{orderInfo.mobile||15890056027}}</p>
+				<p><span>数量：</span> {{orderInfo.goodsNum||1}}</p>
+				<p><span>总价：</span> ￥{{orderInfo.orderPrice||100}}</p>
+			</div>
+		</div>
+		<em class="ordersubinfo-statue" ng-bind="statusName[orderInfo.orderStatus]"></em>
+		<em ui-sref='shops.pay' class="commonpay{{orderInfo.payStatus}}" >付款</em>
+		<em ui-sref='shops.evaluate' class="commoneval0 commoneval{{orderInfo.orderStatus+orderInfo.isComment}}">评价</em>
+		<div class="bdelete{{orderInfo.payStatus}}">
+			<h4>核销信息</h4>
+			<p><span>核销码</span>{{orderInfo.bdelete |number}}</p>	
+			<p> </p>
+		</div>
+			
+
+		<!--<ion-infinite-scroll ng-if="!noMore" on-infinite="loadMore()" distance="-1%" immediate-check="false">
+		</ion-infinite-scroll>-->
+	</ion-content>
+</ion-view>

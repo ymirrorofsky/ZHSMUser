@@ -1,0 +1,23 @@
+<ion-view view-title="等待审核" hide-nav-bar="true">
+<ion-header-bar>
+	<div class="t_headers">
+		<div class="t_back" ng-click="$ionicGoBack()">
+			<i class="ion-ios-arrow-left"></i>
+			<span>返回</span>
+		</div>
+		<h1>等待审核</h1>
+		<div class="refresh" ng-click="checks()">
+			<i class="ion-refresh"></i>
+		</div>
+	</div>
+</ion-header-bar>
+<ion-content overflow-scroll="false">
+	<div class="h_check_box">
+		<div class="check_img">
+			<img ng-src="{{'img/wait.png'}}"  alt="">
+		</div>
+		<h3>商家申请信息正在审核中......</h3>
+		<p>24小时内通过审核，请耐心等待。</p>
+	</div>
+</ion-content>
+</ion-view>

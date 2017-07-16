@@ -1,0 +1,36 @@
+{
+  "shops": {
+    "shopsList": [
+      {
+        "id": "2",
+        "types": "home",
+        "thumb": "http:\/\/localhost\/phpliu\/attachment\/images\/1\/2016\/12\/W7727l7RR777PS6SR8r8qb77mrF72r.png",
+        "title": "分类"
+      },
+      {
+        "id": "3",
+        "types": "home",
+        "thumb": "http:\/\/localhost\/phpliu\/attachment\/images\/1\/2016\/12\/TIh1AIwRA8RE0V7lR87070Kuu7yQJ1.png",
+        "title": "服饰"
+      },
+      {
+        "id": "4",
+        "types": "home",
+        "thumb": "http:\/\/localhost\/phpliu\/attachment\/images\/1\/2016\/12\/Y11jzwa12nNNbPOJos0rR1wWTO7XPn.png",
+        "title": "数码"
+      },
+      {
+        "id": "1",
+        "types": "home",
+        "thumb": "http:\/\/localhost\/phpliu\/attachment\/images\/1\/2016\/12\/GQ7i04eB7oEOdlEloEmD7HnTmo878H.png",
+        "title": "家居"
+      },
+      {
+        "id": "5",
+        "types": "home",
+        "thumb": "http:\/\/localhost\/phpliu\/attachment\/images\/1\/2016\/12\/ti4Tu248tp84Z2wU8ll8yl247I8C9U.png",
+        "title": "餐饮"
+      }
+    ]
+  }
+}

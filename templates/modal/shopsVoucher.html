@@ -1,0 +1,34 @@
+<ion-modal-view>
+	<ion-header-bar class="bar-assertive header-back">
+		<h1 class="title">上传凭证</h1>
+		<div class="buttons">
+			<button class="button button-clear" ng-click="shopsVoucher.hide()">关闭</button>
+		</div>
+	</ion-header-bar>
+	<ion-content class="bodybg-normal">
+		<div class="yd-pay-header">
+			<img ng-src="{{shopsInfo.logo || 'img/avatar.jpg'}}">
+			<h3 ng-bind="shopsInfo.title"></h3>
+		</div>
+		<div class="yd-donate-count real-count">
+			<ul>
+				<li>
+					<label>订单编号</label>
+					<span class="common" ng-bind="orderInfo.orderId"></span>
+				</li>
+				<li>
+					<label>支付金额</label>
+					<span class="common">{{orderInfo.payPrice}}元</span>
+				</li>
+			</ul>
+			<div class="yd-add-img">
+				<label>支付凭证</label>
+				<em class="iconfont icon-add" ng-click="uploadAvatar()"></em>
+				<i id="divImg"></i>
+			</div>
+		</div>
+		<div class="padding sure-btn">
+			<button class="button button-block button-assertive" ng-click="sureSubmit()">确定</button>
+		</div>
+	</ion-content>
+</ion-modal-view>

@@ -1,0 +1,40 @@
+<ion-view view-title="更多功能" hide-nav-bar="true">
+	<ion-header-bar class="bar-calm header-back">
+		<div class="buttons">
+			<button class="button iconfont icon-back1 button-clear" ng-click="$ionicGoBack()"> 返回</button>
+		</div>
+		<h1 class="title">更多功能</h1>
+	</ion-header-bar>
+	<ion-content class="bodybg-normal">
+		<ul class="t_mess_list">
+			<li ui-sref="user.realName">
+				<a href="javascript:;" class="flex">
+					<b class="ion-person assertive"></b>
+					<h3 class="flex_1">个人信息</h3>
+					<i class="ion-ios-arrow-right t_arrow_right"></i>
+				</a>
+			</li>
+			<li ui-sref="user.loginPsw({type:1})">
+				<a href="javascript:;" class="flex">
+					<b class="ion-locked assertive"></b>
+					<h3 class="flex_1">修改登录密码</h3>
+					<i class="ion-ios-arrow-right t_arrow_right"></i>
+				</a>
+			</li>
+		</ul>
+		<ul class="t_mess_list">
+			<li ng-click="update()">
+				<a href="javascript:;" class="flex">
+					<b class="ion-clipboard assertive"></b>
+					<h3 class="flex_1">版本更新</h3>
+					<i class="ion-ios-arrow-right t_arrow_right"></i>
+				</a>
+			</li>
+
+		</ul>
+	</ion-content>
+
+	<ion-footer-bar>
+		<button class="button button-calm" ng-click="logout()" style="width: 100%;">安全退出</button>
+	</ion-footer-bar>
+</ion-view>

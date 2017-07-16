@@ -1,0 +1,117 @@
+<ion-view view-title="成为商家" hide-nav-bar="true">
+	<div ng-if="applyBol">
+		<ion-header-bar class="bar-assertive header-back">
+			<div class="buttons">
+				<button class="button iconfont icon-back1 button-clear" ng-click="$ionicGoBack()">返回</button>
+			</div>
+			<h1 class="title">成为商家</h1>
+		</ion-header-bar>
+		<ion-content class="bodybg-normal">
+			<div class="yd-apply-shop flex">
+				<img ng-src="{{selectType.user.avatar}}" src="img/avatar.jpg">
+				<div class="flex_1 right">
+					<p>昵称：<span>{{selectType.user.realname}}</span></p>
+					<p>手机号码：{{selectType.user.mobile}}</p>
+					<p>我的推荐ID:{{selectType.user.relationUid || "无"}}</p>
+				</div>
+			</div>
+			<div class="yd-donate-count real-count s-apply-c">
+				<ul>
+					<li>
+						<label>商家账号</label>
+						<input type="text" placeholder="请输入商家账号" ng-model="applyInfo.userName">
+					</li>
+					<li>
+						<label>商户名称</label>
+						<input type="text" placeholder="请输入商户名称" ng-model="applyInfo.shopName">
+					</li>
+					<li>
+						<label>商家负责人</label>
+						<input type="text" placeholder="请输入商家负责人名称" ng-model="applyInfo.cName">
+					</li>
+					<li>
+						<label>商家推荐人</label>
+						<input type="text" placeholder="请输入商家推荐人名称" ng-model="applyInfo.shopPer">
+					</li>
+					<li class="flex" ng-click="areaShow()">
+						<p class="flex_1">选择地址</p>
+						<span ng-bind="up.userInfo.area||'点击选择'"></span>
+						<i class="iconfont icon-right"></i>
+					</li>
+					<li>
+						<label>详细地址</label>
+						<input type="text" maxlength="11" placeholder="请输入详细地址" ng-model="applyInfo.address">
+					</li>
+					<li>
+						<label>联系方式</label>
+						<input type="text" placeholder="请输入联系方式" ng-model="applyInfo.mobile">
+					</li>
+					<li ng-click="showShopDesc()">
+						请输入商家描述
+					</li>
+					<li class="flex">
+						<p class="flex_1">选择商户经营类型</p>
+						<select ng-model="applyInfo.selecedType">
+							<option ng-repeat="x in selectType.category"  value="{{x.id}}">{{x.title}}</option>
+						</select>
+					</li>
+					<li class="flex">
+						<p class="flex_1">选择商户让利类型</p>
+						<select ng-model="applyInfo.selectedBili">
+							<option ng-repeat="x in selectType.rebateInfo" value="{{x.shopsRebateType}}">{{x.title}}</option>
+						</select>
+					</li>
+				</ul>
+			</div>
+			<div class="yd-apply-img">
+				<h3>上传证件照</h3>
+				<div class="row">
+					<div class="col photo_box">
+						<p>法人身份证正面照</p>
+						<em id="divImg01"></em>
+						<i class="iconfont icon-add"  ng-click="uploadAvatar(1)"></i>
+					</div>
+					<div class="col photo_box">
+						<p>法人身份证反面照</p>
+						<em id="divImg02"></em>
+						<i class="iconfont icon-add" id="divImg2" ng-click="uploadAvatar(2)"></i>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col photo_box">
+						<p>营业执照</p>
+						<em id="divImg03"></em>
+						<i class="iconfont icon-add" id="divImg3" ng-click="uploadAvatar(3)"></i>
+					</div>
+					<div class="col photo_box">
+						<p>商铺封面照</p>
+						<em id="divImg04"></em>
+						<i class="iconfont icon-add" id="divImg4" ng-click="uploadAvatar(4)"></i>
+					</div>
+				</div>
+				<div class="agree">确认即表示同意<span class="positive" ng-click="showShopAgreement()">《一点公益特约商家服务协议》</span></div>
+			</div>
+		</ion-content>
+		<ion-footer-bar>
+			<button class="button button-assertive" style="width: 100%;" ng-click="apply()">提交</button>
+		</ion-footer-bar>
+	</div>
+
+
+	<!--商家描述-->
+	<div class="applyBol" ng-if="!applyBol">
+		<ion-header-bar class="bar-assertive header-back">
+			<div class="buttons">
+				<button class="button iconfont icon-back1 button-clear" ng-click="showShopDesc()">返回</button>
+			</div>
+			<h1 class="title">商家描述</h1>
+		</ion-header-bar>
+		<ion-content class="bodybg-normal">
+			<div class="yd-reject-con flex">
+				<textarea  rows="10" class="flex_1" placeholder="请输入商家描述信息" ng-model="applyInfo.shopDescrip"></textarea>
+			</div>
+			<button class="button button-block button-assertive zl_btn_center"  ng-click="showShopDesc();">提交</button>
+		</ion-content>
+	</div>
+</ion-view>
+

@@ -1,0 +1,273 @@
+.city-select-quick {
+	position: absolute;
+	top: 90px;
+	right: 5px;
+	padding: 10px 3px;
+	border-radius: 30px;
+	background: rgba(0, 0, 0, 0.618);
+	z-index: 999;
+}
+
+.city-select-quick p {
+	margin: 5px 0;
+	width: 25px;
+	line-height: 20px;
+	text-align: center;
+	color: #fff;
+}
+
+.city-select-quick p.activated {
+	border-radius: 50%;
+	background: rgba(0, 0, 0, 0.7);
+}
+
+.city-select-scroll ul li.index {
+	font-size: 14px;
+	background: #f3f3f3;
+	line-height: 20px;
+}
+
+.city-select-scroll ul li {
+	font-size: 16px;
+	padding: 0 15px;
+	background: #fff;
+	line-height: 35px;
+	border-top: 1px solid #dfdfdf;
+}
+
+/*统计页面样式*/
+.count-header * {
+	margin: 0;
+	padding: 0;
+}
+
+.count-header {
+	background-size: cover;
+	background: url("../img/count_head_bg.png") no-repeat bottom;
+}
+
+.count-header .turnover {
+	padding-top: 30px;
+	text-align: center;
+}
+
+.count-header .turnover h4 {
+	line-height: 30px;
+	font-size: 30px;
+	color: #fff;
+	font-weight: bold;
+	margin: 0;
+}
+
+.count-header .turnover p {
+	line-height: 20px;
+	font-size: 12px;
+	color: #eee;
+	margin: 0;
+}
+
+.count-header .user {
+	padding: 20px 0 10px 0;
+}
+
+.count-header .user li {
+	float: left;
+	width: 50%;
+	font-size: 16px;
+	color: #fff;
+	line-height: 25px;
+	text-align: center;
+}
+
+.count-header .user li:first-child {
+	border-right: 1px solid #dfdfdf;
+}
+
+.count-yesterday li {
+	float: left;
+	width: 50%;
+	line-height: 40px;
+	background: #fff;
+	text-align: center;
+}
+
+.count-yesterday li span {
+	line-height: 20px;
+	font-size: 12px;
+	color: #777777;
+	padding: 0 2px;
+}
+
+.count-tabs {
+	margin-top: 10px;
+	background: #fff;
+}
+
+.count-tabs .h li {
+	float: left;
+	width: 33.33%;
+	height: 41px;
+	font-size: 15px;
+	line-height: 40px;
+	text-align: center;
+}
+
+.count-tabs .h li.cur {
+	border-bottom: 2px solid #ff6600;
+}
+
+.count-tabs .h li:last-child {
+	border-right: none;
+}
+
+.count-tabs .slider-slide {
+	width: 100%;
+	min-height: 200px;
+}
+
+/*!*昨日爱心比值*!*/
+.yesterday-loveRatio {
+	color: #fff;
+	text-align: center;
+	padding: 10px 20px;
+}
+
+.yesterday-loveRatio > h4 {
+	color: #cd2646;
+	line-height: 30px;
+	margin: 0;
+}
+
+.yesterday-loveRatio > p {
+	color: #aaa;
+}
+
+.yesterday-loveRatio ul li {
+	position: relative;
+	width: 100%;
+	height: 60px;
+	margin-top: 5px;
+	border-radius: 10px;
+	background: rgba(236, 196, 136, 0.618);
+}
+
+.yesterday-loveRatio ul li p:first-child {
+	position: absolute;
+	left: 0;
+	width: 70px;
+	height: 60px;
+	padding-top: 10px;
+	margin: 0;
+	border-right: 1px dashed #ff6600;
+}
+
+.yesterday-loveRatio ul li p:last-child {
+	position: absolute;
+	right: 20px;
+	top: 0;
+	margin: 0;
+	line-height: 60px;
+}
+
+.yesterday-loveRatio ul li p:last-child span {
+	float: right;
+	font-size: 16px;
+	padding: 0 10px;
+	line-height: 58px;
+}
+
+.yesterday-loveRatio ul li p:last-child i {
+	font-size: 20px;
+	margin: 0 -2px;
+	float: right;
+}
+
+.yesterday-loveRatio ul li i.icon-dou-copy {
+	color: #f6c707;
+}
+
+/*商家申请头部样式*/
+.t_headers {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 9;
+	height: 50px;
+	line-height: 50px;
+	background-color: #f60;
+}
+
+.t_headers .t_back {
+	position: absolute;
+	left: 0;
+	top: 0;
+	padding-left: 15px;
+	width: 60px;
+	height: 50px;
+	line-height: 50px;
+	color: #fff;
+}
+
+.t_headers h1 {
+	margin: 0 !important;
+	padding: 0 !important;
+	text-align: center;
+	font-size: 16px;
+	line-height: 50px;
+	color: #fff;
+}
+
+.t_headers .t_search {
+	position: absolute;
+	right: 0;
+	top: 0;
+	color: #fff;
+	font-size: 28px;
+	width: 55px;
+	height: 50px;
+	padding-right: 15px;
+	text-align: right;
+}
+
+/*商家申请信息等待审核页面*/
+.h_check_box {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.check_img {
+	text-align: center;
+	margin: 60px 0 30px;
+	width: 200px;
+	height: 200px;
+}
+
+.check_img img {
+	width: 100%;
+	height: 100%;
+}
+
+.h_check_box h3 {
+	margin-top: 0;
+	color: #ea3522;
+}
+
+.refresh {
+	position: absolute;
+	right: 0;
+	top: 0;
+	padding-left: 15px;
+	width: 60px;
+	height: 50px;
+	line-height: 50px;
+	color: #fff;
+}
+
+.refresh i {
+	text-align: center;
+	display: block;
+	font-size: 18px;
+}

@@ -1,0 +1,52 @@
+<ion-view view-title="我浏览过的" hide-nav-bar="true">
+	<ion-header-bar class="bar-calm header-back">
+		<div class="buttons">
+			<button class="button iconfont icon-back1 button-clear" ng-click="$ionicGoBack()">返回</button>
+		</div>
+		<h1 class="title">我浏览过的</h1>
+	</ion-header-bar>
+	<ion-content class="bodybg-normal">
+		<div class="list" ng-repeat='browsegoods in browsegoodsinfo'>
+
+			<a class=" browse item-icon-right" href="#">
+				<!--	<i class="icon ion-android-delete"></i>-->
+				<img ng-src='{{browsegoods.thumb}}'>
+				<h2>{{browsegoods.goodsName}}</h2>
+				<p>优惠价：{{browsegoods.spe_price}}</p>
+				<p>门市价：{{browsegoods.marketprice}}</p>
+				<!--<p>50.00</p>-->
+			</a>
+
+			<!--<a class=" browse item-icon-right" href="#">
+				<!--<i class="icon ion-android-delete"></i>
+				<img src="img/wuimg.png">
+				<h2>Pretty Hate Machine</h2>
+				<p>Nine Inch Nails</p>
+				<p>Nine Inch Nails</p>
+				<p>50.00</p>
+				
+			</a>
+			<a class=" browse item-icon-right" href="#">
+				<!--<i class="icon ion-android-delete"></i>
+				<img src="img/wuimg.png">
+				<h2>Pretty Hate Machine</h2>
+				<p>Nine Inch Nails</p>
+				<p>Nine Inch Nails</p>
+				<p>50.00</p>
+				
+			</a>
+			<a class=" browse item-icon-right" href="#">
+				<i class="icon ion-android-delete"></i>
+				<img src="img/wuimg.png">
+				<h2>Pretty Hate Machine</h2>
+				<p>Nine Inch Nails</p>
+				<p>Nine Inch Nails</p>
+				<p>50.00</p>
+				
+			</a>-->
+
+		</div>
+
+	</ion-content>
+</ion-view>
+

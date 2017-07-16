@@ -1,0 +1,64 @@
+<ion-view view-title="回购" hide-nav-bar="true">
+	<ion-header-bar class="bar-assertive header-back">
+		<div class="buttons">
+			<button class="button iconfont icon-back1 button-clear" ng-click="$ionicGoBack()">返回</button>
+		</div>
+		<h1 class="title">回购</h1>
+		<div class="buttons">
+			<button class="button button-clear" ui-sref="user.repoList">回购记录</button>
+		</div>
+	</ion-header-bar>
+	<ion-content class="bodybg-normal">
+		<div class="yd-donate-text padding" ng-bind-html="repoInfo.message"></div>
+		<div class="yd-add-bank" ui-sref="user.myBank" ng-if="!repoInfo.bank">
+			<i class="ion-ios-plus-outline"></i>
+			<p>点击添加银行卡</p>
+		</div>
+		<ion-list ui-sref="user.myBank" ng-if="repoInfo.bank">
+			<ion-item class="item-avatar item-icon-right">
+				<img src="img/wuimg.png">
+				<h3>{{repoInfo.bank.bankName}}</h3>
+				<p>{{repoInfo.bank.bankCard}}</p>
+				<i class="icon ion-ios-arrow-right right-color"></i>
+			</ion-item>
+		</ion-list>
+		<div class="yd-donate-count real-count">
+			<ul>
+				<!--<li ng-click="showBean = !showBean">-->
+					<!--<div class="flex beanType">-->
+						<!--<p class="flex_1">回购类型</p>-->
+						<!--<span>{{showDropType}}<i class="iconfont icon-unfold right-color" ng-if="showBean"></i><i class="iconfont icon-right right-color" ng-if="!showBean"></i></span>-->
+					<!--</div>-->
+					<!--<div class="bean" ng-hide="!showBean">-->
+						<!--<p ng-click="beanType(1,'普通信使豆')">普通信使豆</p>-->
+						<!--<p ng-click="beanType(2,'待缴税信使豆')">待缴税信使豆</p>-->
+					<!--</div>-->
+				<!--</li>-->
+				<li class="flex">
+					<p class="flex_1">回购类型</p>
+					<span>普通信使豆</span>
+				</li>
+				<li class="flex">
+					<p class="flex_1">剩余信使豆</p>
+					<span>{{repoInfo.beanNum}}</span>
+				</li>
+				<li class="flex">
+					<p class="flex_1">可兑换金额</p>
+					<span>{{repoInfo.beanNum}}</span>
+				</li>
+				<li class="repo">
+					<label>回购信使豆</label>
+					<input type="text" placeholder="请输入100的整数倍" ng-model="repoInfo.bean">
+				</li>
+				<li class="repo">
+					<label>支付密码</label>
+					<input type="password" placeholder="请输入支付密码" ng-model="repoInfo.password">
+				</li>
+			</ul>
+			<div class="padding sure-btn">
+				<button class="button button-block button-assertive" ng-click="submit()">确定</button>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>
+

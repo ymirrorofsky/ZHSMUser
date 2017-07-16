@@ -1,0 +1,18 @@
+<ion-view title="提现信息" hide-nav-bar="true" hide-back-button="true">
+
+	<ion-header-bar class="bar-calm header-back">
+		<div class="buttons">
+			<button class="button iconfont icon-back1 button-clear" ng-click="$ionicGoBack()">返回</button>
+		</div>
+		<h1 class="title">提现信息</h1>
+	</ion-header-bar>
+
+	<ion-content class="bodybg-normal">
+	<div class="menu-tit"><p class="flex_2">时间</p><p class="flex_1">金额</p><p>状态</p></div>
+	<div class="shop-order-list">
+		<div class=" menu-list" ui-sref="my.myorderinfo"><p class="flex_2">{{item.orderId||1234564}}</p><p>10000元</p><p>未核销</p></div>
+		<div class=" menu-list"><p class="flex_2">{{item.orderId||12344}}</p><p>10000元</p><p>已完成</p></div>
+		
+	</div>
+	</ion-content>
+</ion-view>

@@ -1,0 +1,38 @@
+<ion-view view-title="当日激励详情" hide-nav-bar="true" hide-back-button="true">
+	<ion-header-bar class="bar-assertive header-back">
+		<div class="buttons">
+			<button class="button iconfont icon-back1 button-clear" ng-click="$ionicGoBack()">返回</button>
+		</div>
+		<h1 class="title">当日激励详情</h1>
+	</ion-header-bar>
+	<ion-content class="bodybg-normal">
+		<div class="yd-excit-title flex">
+			<p class="flex_1"><span class="positive" ng-bind="excitation.userTitle || '暂无'"></span><br>昨日激励日</p>
+			<p class="flex_1 last"><span class="positive" ng-bind="excitation.userNum || '0.00'"></span><i>颗</i><br>激励信使豆</p>
+		</div>
+		<div class="s-list-det yd-ex-num">
+			<div class="row">
+				<div class="col">激励模式</div>
+				<div class="col">信使豆</div>
+			</div>
+			<div class="row" ng-repeat="item in excitation.user">
+				<div class="col" ng-bind="item.title || '暂无'"></div>
+				<div class="col" ng-bind="item.num || '0.00'"></div>
+			</div>
+		</div>
+		<div class="yd-excit-title flex">
+			<p class="flex_1"><span class="positive" ng-bind="excitation.shopsTitle || '暂无'"></span><br>昨日激励日</p>
+			<p class="flex_1 last"><span class="positive" ng-bind="excitation.shopsNum || '0.00'"></span><i>颗</i><br>激励信使豆</p>
+		</div>
+		<div class="s-list-det yd-ex-num">
+			<div class="row">
+				<div class="col">激励模式</div>
+				<div class="col">信使豆</div>
+			</div>
+			<div class="row" ng-repeat="item in excitation.shop">
+				<div class="col" ng-bind="item.title || '暂无'"></div>
+				<div class="col" ng-bind="item.num || '0.00'"></div>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>

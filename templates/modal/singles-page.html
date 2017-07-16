@@ -1,0 +1,11 @@
+<ion-modal-view>
+	<ion-header-bar class="bar-calm header-back">
+		<h1 class="title" ng-bind="spTitle || '信息'"></h1>
+		<div class="buttons">
+			<button class="button button-clear" ng-click="modal.hide()">关闭</button>
+		</div>
+	</ion-header-bar>
+	<ion-content class="padding" ng-bind-html="spContent.info">
+		Hello!
+	</ion-content>
+</ion-modal-view>

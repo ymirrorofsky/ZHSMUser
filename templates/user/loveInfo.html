@@ -1,0 +1,42 @@
+<ion-view view-title="我的爱心" hide-nav-bar="true" hide-back-button="true">
+	<ion-header-bar class="bar-assertive header-back">
+		<div class="buttons">
+			<button class="button iconfont icon-back1 button-clear" ng-click="$ionicGoBack()">返回</button>
+		</div>
+		<h1 class="title" ng-click="myVar = !myVar">我的爱心<i class="iconfont icon-unfold"></i></h1>
+		<div class="yd-love-type" ng-if="myVar">
+			<span class="triangle-up"></span>
+			<p ng-repeat="item in loveInfo.roleInfo" ng-bind = item.title ng-click="select(item.role)"></p>
+		</div>
+	</ion-header-bar>
+	<div class="bar bar-subheader" style="padding: 0; z-index: 6;">
+		<div class="row">
+			<div class="col"  ng-repeat="item in loveInfo.rebateInfo" ng-click="selectTab(item.shopsRebateType)" ng-class="{'active': type == item.shopsRebateType}">{{item.title}}</div>
+		</div>
+	</div>
+	<ion-content on-swipe-right="onSwipe('r')" on-swipe-left="onSwipe('l')" class="bodybg-normal">
+
+		<ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"></ion-refresher>
+
+		<div class="s-empty"></div>
+		<div class="s-list-money">
+			<h3 ng-repeat="x in loveInfo.rebateInfo" ng-if="type == x.shopsRebateType">{{x.title}}爱心总计</h3>
+			<h3 ng-bind="loveInfo.loveNum"></h3>
+		</div>
+		<div class="common-empty" ng-if="orderEmpty">什么也没有...</div>
+		<div class="yd-loveInfo" ng-if="!orderEmpty">
+			<ul>
+				<li ng-repeat="item in loveInfo.list ">
+					<p><span class="fl text-overflow_1">爱心产生日期:{{item.updatetime*1000 | date:'yyyy-MM-dd'}}</span><span class="fr text-overflow_1">消费日期:{{item.createtime*1000 | date:'yyyy-MM-dd'}}</span></p>
+					<p><span class="fl">消费金额:</span><span class="fr"><i class="iconfont icon-money positive"></i>{{item.orderPrice}}</span></p>
+					<!--<p><span class="fl">爱心结余:</span><span class="fr"><i class="iconfont icon-likefill positive"></i>{{item.surplusMoney}}</span></p>-->
+					<p><span class="fl">产生爱心:</span><span class="fr"><i class="iconfont icon-likefill positive"></i>{{item.addLoveNum}}</span></p>
+				</li>
+			</ul>
+		</div>
+
+		<ion-infinite-scroll ng-if="!noMore" on-infinite="loadMore()" distance="-1%" immediate-check="false">
+		</ion-infinite-scroll>
+
+	</ion-content>
+</ion-view>

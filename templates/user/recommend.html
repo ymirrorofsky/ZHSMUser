@@ -1,0 +1,30 @@
+<ion-view view-title="我的二维码" hide-nav-bar="true">
+	<ion-header-bar class="bar-assertive header-back">
+		<div class="buttons">
+			<button class="button iconfont icon-back1 button-clear" ng-click="$ionicGoBack()">返回</button>
+		</div>
+		<h1 class="title">我的二维码</h1>
+		<div class="buttons">
+			<button class="button button-clear" ui-sref="user.recommendHistory">历史推荐</button>
+		</div>
+	</ion-header-bar>
+	<ion-content >
+		<div class="yd-rec-qcode">
+			<h5 ng-bind="myQrcode.message.title"></h5>
+			<P class="positive" ng-bind="myQrcode.message.hint"></P>
+			<img ng-src="{{myQrcode.url || 'img/wuimg.png'}}" />
+		</div>
+	</ion-content>
+	<ion-footer-bar style="height: 56px; padding: 0;">
+		<div class="recom-bot" ng-click="developing()">
+			<ul class="clearfix">
+				<li><i class="iconfont icon-weixin balanced"></i><p>微信好友</p></li>
+				<li><i class="iconfont icon-friends balanced"></i><p>朋友圈</p></li>
+				<li><i class="iconfont icon-qq 11c1f3 calm"></i><p>QQ</p></li>
+				<li><i class="iconfont icon-qqkongjian energized"></i><p>QQ空间</p></li>
+			</ul>
+		</div>
+
+	</ion-footer-bar>
+</ion-view>
+

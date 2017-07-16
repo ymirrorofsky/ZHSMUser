@@ -1,0 +1,53 @@
+<ion-view view-title="订单详情" hide-nav-bar="true">
+	<ion-header-bar class="bar-calm header-back">
+		<div class="buttons">
+			<button class="button iconfont icon-back1 button-clear" ng-click="$ionicGoBack()">返回</button>
+		</div>
+		<h1 class="title">订单详情 </h1>
+	</ion-header-bar>
+	<ion-content class="bodybg-normal">
+		<div class="myorderinfo">
+			<ion-label></ion-label>
+			<a class="item ">
+				订单编号
+				<span class="item-note pureblack">
+			 {{orderInfo.orderId}}
+			</span>
+				<!--<i class="icon ion-ios-arrow-right"></i>-->
+			</a>
+			<ion-label></ion-label>
+			<a class="item  ">
+				{{ orderInfo.payType}}
+				<span class="item-note pureblack">
+			  {{ orderInfo.payType}}
+			</span>
+				<!--<i class="icon ion-ios-arrow-right"></i>-->
+			</a>
+			<ion-label></ion-label>
+			<a class="item shopinfo">
+				<i class="iconfont icon-home"></i> {{ orderInfo.shop.title}}
+			</a>
+			<ion-label></ion-label>
+			<a class="item" >
+				<img src="img_ad/leijishouyi.png" /> 
+				<b>{{orderInfo.goodsName}}</b>
+				<span class="item-note pureblack"
+					style="position: relative;top:10px;line-height: 25px;">
+			 ￥{{orderInfo.goodsPrice}}<br />{{orderInfo.goodsNum}}
+			</span>
+			</a>
+			<ion-label></ion-label>
+			<a class="item" >
+				订单总金额
+				<span class="item-note pureblack">
+			 {{orderInfo.orderPrice}}
+			</span>
+			</a>
+			<ion-label></ion-label>
+			<a class="check" >
+				 核销码<input type="text" id='delcode' ng-model="dcode.code" placeholder="请输入核销码"/>
+			</a>
+          <button class="button" ng-click="godel({orderId:orderInfo.orderId,code:dcode.code})">确认核销</button>
+		</div>
+	</ion-content>
+</ion-view>

@@ -1,0 +1,57 @@
+<ion-view view-title="我的爱心" hide-nav-bar="true" hide-back-button="true">
+	<ion-header-bar class="bar-assertive">
+		<h1 class="title" ng-click="myVar= !myVar">我的爱心<i class="iconfont icon-unfold"></i></h1>
+		<div class="yd-love-type" ng-if="myVar">
+			<span class="triangle-up"></span>
+			<p ng-repeat="item in totalInfo.roleInfo" ng-bind = item.title ng-click="selectRole(item.role)"></p>
+		</div>
+	</ion-header-bar>
+	<ion-content>
+		<div class="yd-love-tnum" ui-sref="user.loveInfo">
+			<ul class="clearfix">
+				<li class="com">
+					<p>爱心总数</p><span class="positive" ng-bind="totalInfo.count.love || 0"></span>
+				</li>
+				<li  class="com">
+					<p>激励中的爱心</p><span class="positive" ng-bind="totalInfo.count.Loveing || 0"></span>
+				</li>
+				<li class="flex">
+					<div class="flex_1">
+						<p>激励完成的爱心</p><span class="positive" ng-bind="totalInfo.count.useLove || 0"></span>
+					</div>
+					<i class="iconfont icon-right"></i>
+				</li>
+			</ul>
+		</div>
+		<div class="flex yd-love-exBean" ui-sref="user.totalBean({type:1})">
+			<div class="flex_1">
+				<p>累计激励信使豆</p>
+				<span class="positive" ng-bind="totalInfo.count.countBean || 0"></span>
+			</div>
+			<i class="iconfont icon-right"></i>
+		</div>
+		<div class="bodybg-normal" style="height: 10px;"></div>
+		<div class="yd-love-pro">
+			<div class="bl">
+				<ul class="clearfix">
+					<li ng-repeat="item in totalInfo.rebateInfo"><span><i class="iconfont icon-move" style="color: {{item.color}};"></i>{{item.title}}</span></li>
+				</ul>
+			</div>
+			<div class="arc">
+				<canvas id="canvas" class="arc-chart"></canvas>
+			</div>
+			<div class="love-num">
+				<ul>
+					<li class="flex" ng-repeat = 'x in totalInfo.list[1]'>
+						<p class="flex_1 fl"><i class="icon ion-stop" style="color: {{x.color}};"></i>{{x.title}}</p>
+						<p class="fr">{{x.num}}<i class="iconfont icon-likefill positive" ></i></p>
+					</li>
+					<li class="flex" ng-repeat = 'x in totalInfo.list[2]'>
+						<p class="flex_1 fl"><i class="icon ion-stop" style="color: {{x.color}};"></i>{{x.title}}</p>
+						<p class="fr">{{x.num}}<i class="iconfont icon-likefill positive" ></i></p>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>

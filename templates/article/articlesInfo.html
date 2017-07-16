@@ -1,0 +1,31 @@
+<ion-view title="文章详情" hide-nav-bar="true" hide-back-button="true">
+
+	<ion-header-bar class="bar-calm header-back">
+		<div class="buttons">
+			<button class="button iconfont icon-back1 button-clear" ng-click="$ionicGoBack()">返回</button>
+		</div>
+		<h1 class="title">文章详情</h1>
+	</ion-header-bar>
+
+	<ion-content>
+    <div class="list card">
+
+      <div class="item item-avatar">
+        <!--<img src="mcfly.jpg">-->
+        <h2>{{articlesdetail.article.title}}</h2>
+        <p>{{articlesdetail.article.createtime}}</p>
+      </div>
+
+      <div class="item item-body">
+        <!--<img class="full-image" src="delorean.jpg">-->
+        <p ng-bind-html="articlesdetail.article.info">
+        </p>
+        <!--<p>
+          <a href="#" class="subdued">1 Like</a>
+          <a href="#" class="subdued">5 Comments</a>
+        </p>-->
+      </div>
+
+    </div>
+	</ion-content>
+</ion-view>

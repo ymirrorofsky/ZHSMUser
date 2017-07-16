@@ -1,0 +1,19 @@
+<ion-view view-title="关于众惠商盟" hide-nav-bar="true">
+	<ion-header-bar class="bar-calm header-back">
+		<div class="buttons">
+			<button class="button iconfont icon-back1 button-clear" ng-click="$ionicGoBack()">返回</button>
+		</div>
+		<h1 class="title">关于众惠商盟 </h1>
+	</ion-header-bar>
+	<ion-content class="bodybg-normal">
+		<div class="about-tcbj">
+         <img class="pic" ng-src="{{getInfo.versionLogo ||'./wuimg.png'}}" alt="" />
+		<p class="about-intro" ng-bind-html="getInfo.text ||'欢迎使用众惠商盟'" >
+			
+		</p>
+		</div>
+		<!--<div class="about-net">
+			{{getInfo.url||'baidu.com'}}
+		</div>-->
+	</ion-content>
+</ion-view>

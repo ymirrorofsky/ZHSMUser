@@ -1,0 +1,22 @@
+<ion-view view-title="用户帮助" hide-nav-bar="true">
+	<ion-header-bar class="bar-calm header-back">
+		<div class="buttons">
+			<button class="button iconfont icon-back1 button-clear" ng-click="$ionicGoBack()">返回</button>
+		</div>
+		<h1 class="title">用户帮助</h1>
+	</ion-header-bar>
+	<ion-content class="bodybg-normal">
+		<div class="common-empty" ng-if="info.list.length < 1">什么也没有</div>
+		<div class="ydgy-news">
+			<ul>
+				<li ui-sref="user.newsDetails({id:userlist.id})" ng-repeat="userlist in userList">
+					<a href="javascript:;" class="flex">
+						<b class="ion-chatbubbles calm"></b>
+						<h3 class="flex_1 text-overflow_2">{{userlist.title}}</h3>
+						<i class="ion-ios-arrow-right"></i>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</ion-content>
+</ion-view>

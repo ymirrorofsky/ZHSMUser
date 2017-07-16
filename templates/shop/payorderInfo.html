@@ -1,0 +1,47 @@
+<ion-view view-title="订单详情" hide-nav-bar="true">
+	<ion-header-bar class="bar-calm header-back">
+		<div class="buttons">
+			<button class="button iconfont icon-back1 button-clear" ng-click="$ionicGoBack()">返回</button>
+		</div>
+		<h1 class="title">提交订单</h1>
+		<div class="buttons" ng-if="orderInfo.orderStatus == 0 && type == 'shops'" ng-click="rejectContent()">
+			<button class="button button-clear">拒绝</button>
+		</div>
+	</ion-header-bar>
+	<ion-content class="bodybg-normal">
+		<!--<div class="yd-shops-avatar">-->
+			<!--<img src="img/ali_logo.png">-->
+		<!--</div>-->
+		<hr style="background: #E0E0E0;height: 15px;margin:0;" />
+		<div class="yd-shops-order">
+			<p>用户手机号：{{orderInfo.mobile || '暂无'}}</p>
+			<p>下&nbsp;单&nbsp;时&nbsp;间：{{orderInfo.createtime*1000 | date:'yyyy-MM-dd HH:mm'}}</p>
+			<p>订&nbsp;单&nbsp;编&nbsp;号：{{orderInfo.orderId}}</p>
+			<p>订&nbsp;单&nbsp;金&nbsp;额：{{orderInfo.orderPrice}}元</p>
+			<hr style="background: #E0E0E0;height: 10px;" />
+			<!--<p>余&nbsp;额&nbsp;总&nbsp;量：{{baInfo.welBalance}}元</p>-->
+			<!--<p>本&nbsp;次&nbsp;抵&nbsp;用：<span ng-model="orderInfo.creditUse"></span>元</p>
+			<p>实&nbsp;付&nbsp;金&nbsp;额：<span ng-model="orderInfo.factMoney"></span>元</p>-->
+			<p >本&nbsp;次&nbsp;抵&nbsp;用：{{baInfo.balanceUse||0}}元</p>
+			<p >实&nbsp;付&nbsp;金&nbsp;额：{{baInfo.factMoney||0}}元</p>
+			<!--<p>用&nbsp;户&nbsp;备&nbsp;注：{{orderInfo.remarks || '暂无'}}</p>
+			<p ng-if="type == 'user'">支&nbsp;付&nbsp;商&nbsp;家：{{orderInfo.shopsName}}</p>
+			<h3 ng-if="type == 'user'">状态：<span class="positive" ng-bind="statusName[orderInfo.orderStatus]"></span></h3>-->
+			<!--<h3 ng-if="type == 'shops'">支付金额：<span class="positive">{{orderInfo.orderPrice}}元</span></h3>-->
+		</div>
+		<div class="order-noshow">
+			<input  type="password" placeholder="请输入余额支付密码" ng-model='paybal'/>
+			 <button ng-click='checkbal({passWord:paybal})'>确认支付</button>
+		</div>
+		<!--<div class="yd-refure-cont" ng-if="orderInfo.refuseRemark && orderInfo.orderStatus == -1">拒绝原因：{{orderInfo.refuseRemark}}</div>-->
+		<!--<div class="yd-refure-cont" ng-if="orderInfo.refuseRemark && orderInfo.orderStatus == -2">拒绝原因：<p ng-bind-html="orderInfo.refuseRemark"></p></div>-->
+		<div >
+			<button id='showchange' class="button button-block button-positive zl_btn_center" ng-disabled = 'orderInfo.orderStatus != 0' 
+				ng-class="{'light': orderInfo.orderStatus != 0}" ng-click="goodsPay()" >购买</button>
+			<!--ui-sref="shops.pay({orderId:orderInfo.orderId, spid:orderInfo.spid, payPrice: orderInfo.payPrice})"
+				-->
+			<!--<div class="yd-pay-voucher"><span ng-click="showVoucher()">点击查看支付凭证<i class="iconfont icon-right"></i></span></div>-->
+		</div>
+	</ion-content>
+</ion-view>
+

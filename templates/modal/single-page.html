@@ -1,0 +1,12 @@
+<ion-modal-view>
+	<ion-header-bar class="bar-calm header-back">
+		<h1 class="title" ng-bind="spTitle || '用户注册协议'"></h1>
+		<div class="buttons">
+			<button class="button button-clear" ng-click="modal.hide()">关闭</button>
+		</div>
+	</ion-header-bar>
+	<ion-content class="padding" >
+		<div ng-bind-html="spContent"></div>
+		Hello!
+	</ion-content>
+</ion-modal-view>

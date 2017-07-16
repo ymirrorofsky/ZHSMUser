@@ -1,0 +1,21 @@
+<ion-view title="订单详情" hide-nav-bar="true" hide-back-button="true">
+
+	<ion-header-bar class="bar-assertive header-back">
+		<div class="buttons">
+			<button class="button iconfont icon-back1 button-clear" ui-sref="user.myMessage">返回</button>
+		</div>
+		<h1 class="title">订单详情</h1>
+	</ion-header-bar>
+
+	<ion-content class="bodybg-normal">
+		<div class="yd-shops-order">
+			<p>下&nbsp;单&nbsp;时&nbsp;间：{{orderDetails.createtime}}</p>
+			<p>订&nbsp;单&nbsp;编&nbsp;号：{{orderDetails.orderId}}</p>
+			<p>订&nbsp;单&nbsp;金&nbsp;额：{{orderDetails.orderPrice}}元</p>
+			<p>支&nbsp;付&nbsp;金&nbsp;额：{{orderDetails.orderPrice}}元</p>
+			<p>支&nbsp;付&nbsp;商&nbsp;家：{{orderDetails.shopsName}}</p>
+			<p>商&nbsp;家&nbsp;地&nbsp;址：</p>
+			<h3>状态：<span class="positive" ng-bind="statusName[orderDetails.orderStatus]"></span></h3>
+		</div>
+	</ion-content>
+</ion-view>

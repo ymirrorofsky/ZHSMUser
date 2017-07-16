@@ -1,0 +1,113 @@
+<ion-view view-title="个人中心" hide-nav-bar="true" hide-back-button="true">
+	<ion-header-bar class="bar-assertive header-my">
+		<div class="buttons" ui-sref="user.center">
+			<button class="button iconfont icon-shezhi button-clear button-icon-size"></button>
+		</div>
+		<h1 class="title">我的</h1>
+		<div class="buttons" ng-click="showMsg()">
+			<button class="button iconfont icon-lianxikefu button-clear"></button>
+			<span class="yd-xtmsgNum" ng-if="msgNum"></span>
+		</div>
+	</ion-header-bar>
+
+	<ion-content class="bodybg-normal">
+		<div class="my-header">
+			<div class="mobile">
+				<i class="iconfont icon-like"></i>
+				<p>ID:{{myInfo.user.uid || '暂无'}}&nbsp;&nbsp;账号:{{myInfo.user.mobile || '暂无'}}</p>
+			</div>
+			<ul class="clearfix">
+				<li>
+					<div>
+						<span ng-bind="myInfo.loveNum || 0"></span>
+						<p>我的爱心</p>
+					</div>
+				</li>
+				<li>
+					<div>
+						<span ng-bind="myInfo.beanNum || 0.00"></span>
+						<p>我的信使豆</p>
+					</div>
+				</li>
+				<li ui-sref="user.excitation">
+					<div>
+						<span ng-bind="myInfo.lastTime || 0"></span>
+						<p>上个激励日</p>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<!--<div class="my-mobile-nav">-->
+			<!--<ul class="clearfix">-->
+				<!--<li>-->
+					<!--<i class="iconfont icon-like" style="color: red"></i>-->
+					<!--<p>我的心愿</p>-->
+					<!--<span>0</span>-->
+				<!--</li>-->
+				<!--<li>-->
+					<!--<i class="iconfont icon-favor" style='color:orange'></i>-->
+					<!--<p>我的星星</p>-->
+					<!--<span>0</span>-->
+				<!--</li>-->
+				<!--<li>-->
+					<!--<i class="iconfont icon-dengji" style="color: orange"></i>-->
+					<!--<p>推荐鼓励金</p>-->
+					<!--<span>0</span>-->
+				<!--</li>-->
+				<!--<li>-->
+					<!--<i class="iconfont icon-zhibodou" style="color:#ffc900"></i>-->
+					<!--<p>交易鼓励金</p>-->
+					<!--<span>0</span>-->
+				<!--</li>-->
+			<!--</ul>-->
+		<!--</div>-->
+		<div class="bodybg-normal" style="height: 10px;"></div>
+		<div class="my-bottom-nav">
+			<ul class="clearfix com">
+				<li ng-click="scan()">
+					<i class="iconfont icon-saoyisao calm"></i>
+					<p>扫码付款</p>
+				</li>
+				<li ui-sref="user.myBean">
+					<i class="iconfont icon-dou-copy energized" ></i>
+					<p>我的信使豆</p>
+				</li>
+				<li ui-sref="user.recommend">
+					<i class="iconfont icon-tuijian balanced" ></i>
+					<p>我要推荐</p>
+				</li>
+			</ul>
+			<ul class="clearfix com">
+				<li ui-sref="user.repo">
+					<i class="iconfont icon-woyaohuigoutubiao balanced"></i>
+					<p>回购</p>
+				</li>
+				<li ui-sref="user.donate">
+					<i class="iconfont icon-badaxilietubiao05-copy positive"></i>
+					<p>直捐</p>
+				</li>
+				<li ui-sref="user.give">
+					<i class="iconfont icon-touzi-copy positive"></i>
+					<p>转赠</p>
+				</li>
+			</ul>
+			<ul class="clearfix">
+				<li ui-sref="shops.orderList({type:'user'})">
+					<i class="iconfont icon-dingdan2 assertive"></i>
+					<p>我的订单</p>
+				</li>
+				<li>
+					<div ng-if="globalInfo.user.isShop > 0" ui-sref="shops.center({spid:globalInfo.user.isShop})">
+						<i class="iconfont icon-shangjia1 assertive"></i>
+						<p>商家中心</p>
+					</div>
+					<div ng-if="globalInfo.user.isShop == 0" ng-click="toApply()">
+						<i class="iconfont icon-my" style="color: #43cee6"></i>
+						<p>申请成为商家</p>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</ion-content>
+
+</ion-view>

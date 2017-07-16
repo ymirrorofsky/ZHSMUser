@@ -1,0 +1,56 @@
+<ion-view view-title="提现中心" hide-nav-bar="true">
+	<ion-header-bar class="bar-calm header-back">
+		<div class="buttons">
+			<button class="button iconfont icon-back1 button-clear" ng-click="$ionicGoBack()">返回</button>
+		</div>
+		<h1 class="title">提现中心</h1>
+	</ion-header-bar>
+	<ion-content class="bodybg-normal">
+		<div class="list list-inset">
+			<label class="item item-input">
+				<span class="input-label">商家负责人：</span>
+				<input type="text" placeholder="具有对该商家的最高管理权限">
+			</label>
+			<label class="item item-input">
+				<span class="input-label">联系电话：</span>
+				<input type="password" placeholder="新增商家必填">
+			</label>
+           <label class="item item-input item-select">
+				<div class="input-label">
+					提现方式：
+				</div>
+				<select>
+					<option>银行卡</option>
+					<option selected>支付宝</option>
+				</select>
+			</label>
+			<label class="item item-input">
+				<span class="input-label">姓名：</span>
+				<input type="text" placeholder="请输入姓名">
+			</label>
+			<!--<label class="item item-input">-->
+				<!--<span class="input-label">商家类型：</span>-->
+			<!--</label>-->
+
+			<label class="item item-input">
+				<span class="input-label">账号：</span>
+				<input type="text" placeholder="请输入账号">
+			</label>
+			<label class="item item-input">
+				<span class="input-label">提现金额：</span>
+				<input type="password" placeholder="请输入提现金额">
+			</label>
+			
+			<!--<label class="item item-input">
+				<span class="input-label">营业执照：</span>
+				<input type="file" >
+			</label>
+			<label class="item item-input">
+				<span class="input-label">*仅支持jpg、png格式上传*</span>
+			</label>-->
+		</div>
+		<button class="button button-block button-calm">提现</button>
+
+	</ion-content>
+</ion-view>
+

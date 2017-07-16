@@ -1,0 +1,51 @@
+<ion-view view-title="我要直捐" hide-nav-bar="true">
+	<ion-header-bar class="bar-assertive header-back">
+		<div class="buttons">
+			<button class="button iconfont icon-back1 button-clear" ng-click="$ionicGoBack()">返回</button>
+		</div>
+		<h1 class="title">我要直捐</h1>
+		<div class="buttons">
+			<button class="button button-clear" ui-sref="user.donateList">直捐记录</button>
+		</div>
+	</ion-header-bar>
+	<ion-content class="bodybg-normal">
+		<div class="yd-donate-text padding" ng-bind-html="donateInfo.donateInfo">
+			<p>*感谢您的捐赠，您所捐赠的信使豆将兑换成RMB（1颗信使豆=1元）直接进入一点公益基金会。最终解释权归某某科技公司。<br>
+			一点公益基金会账号<br>开户行：中国工商银行<br>账号：888888888</p>
+		</div>
+		<div class="yd-donate-count real-count">
+			<ul>
+				<!--<li ng-click="showBean = !showBean">-->
+					<!--<div class="flex beanType">-->
+						<!--<p class="flex_1">直捐类型</p>-->
+						<!--<span>{{showDropType}}<i class="iconfont icon-unfold right-color" ng-if="showBean"></i><i class="iconfont icon-right right-color" ng-if="!showBean"></i></span>-->
+					<!--</div>-->
+					<!--<div class="bean" ng-hide="!showBean">-->
+						<!--<p ng-click="beanType(1,'普通信使豆')">普通信使豆</p>-->
+						<!--<p ng-click="beanType(2,'待缴税信使豆')">待缴税信使豆</p>-->
+					<!--</div>-->
+				<!--</li>-->
+				<li class="flex">
+					<p class="flex_1">直捐类型</p>
+					<span>普通信使豆</span>
+				</li>
+				<li class="flex">
+					<p class="flex_1">可捐赠信使豆</p>
+					<span ng-bind="donateInfo.beanNum"></span>
+				</li>
+				<li>
+					<label>捐赠数量</label>
+					<input type="text" placeholder="请输入要捐赠的数量" ng-model="donateInfo.donateNum">
+				</li>
+				<li>
+					<label>支付密码</label>
+					<input type="password" placeholder="请输入支付密码" ng-model="donateInfo.password">
+				</li>
+			</ul>
+			<div class="padding sure-btn">
+				<button class="button button-block button-assertive" ng-click="submit()">确定</button>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>
+

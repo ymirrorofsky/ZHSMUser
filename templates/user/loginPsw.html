@@ -1,0 +1,42 @@
+<ion-view view-title="修改登录密码" hide-nav-bar="true">
+	<ion-header-bar class="bar-calm header-back">
+		<div class="buttons">
+			<button class="button iconfont icon-back1 button-clear" ng-click="$ionicGoBack()">返回</button>
+		</div>
+		<h1 class="title"><span ng-if="type == 1">修改登录密码</span><span ng-if="type == 2">修改支付密码</span></h1>
+	</ion-header-bar>
+	<ion-content class="bodybg-normal">
+		<div class="real-count">
+			<ul>
+				<li>
+					<label>登录账号</label>
+					<span class="common" ng-bind="globalInfo.user.mobile"></span>
+				</li>
+				<li>
+					<label>原始密码</label>
+					<input type="password" placeholder="请输入原始密码" ng-model="pageData.oldpsd">
+				</li>
+
+				<li>
+					<label>修改密码</label>
+					<input type="password" placeholder="请输入至少6位新密码" ng-model="pageData.newpsd">
+				</li>
+				<li>
+					<label>确认密码</label>
+					<input type="password" placeholder="请再次确认密码" ng-model="pageData.respsd">
+				</li>
+				<li>
+					<label>短信验证</label>
+					<input type="text" placeholder="输入验证码" maxlength="9" ng-model="pageData.code">
+					<button class="button button-small button-calm btn" ng-click="getCode(pageData.oldpsd,pageData.newpsd,pageData.respsd,type)" ng-disabled = 'getCaptchaSuccess'>
+						<span ng-if="!getCaptchaSuccess">获取验证码</span><span ng-if="getCaptchaSuccess">重新获取{{reg.number}}s</span>
+					</button>
+				</li>
+			</ul>
+			<div class="forget_psd" ng-if="type == 2" ng-bind="'忘记支付密码？'"  ui-sref="user.resetPayWord"></div>
+			<div class="padding sure-btn">
+				<button class="button button-block button-calm" ng-click="savePsd(pageData.oldpsd,pageData.code,pageData.newpsd,pageData.respsd)">保存修改</button>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>

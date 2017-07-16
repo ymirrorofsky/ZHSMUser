@@ -1,0 +1,32 @@
+<ion-view title="转增记录" hide-nav-bar="true" hide-back-button="true">
+
+	<ion-header-bar class="bar-assertive header-back">
+		<div class="buttons">
+			<button class="button iconfont icon-back1 button-clear" ng-click="$ionicGoBack()">返回</button>
+		</div>
+		<h1 class="title">转增记录</h1>
+	</ion-header-bar>
+	<div class="bar bar-subheader" style="padding: 0;">
+		<div class="row">
+			<div class="col" ng-click="active(1)" ng-class="{'active': select == 1}">转增</div>
+			<div class="col" ng-click="active(2)" ng-class="{'active': select == 2}">获赠</div>
+		</div>
+	</div>
+	<ion-content class="bodybg-normal">
+		<ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"></ion-refresher>
+
+		<div class="s-empty"></div>
+		<div class="common-empty" ng-if="orderEmpty">什么也没有...</div>
+		<div class="yd-mesg-coutent" ng-if="!orderEmpty">
+			<ul>
+				<li class="clearfix" ng-repeat=" item in giveList">
+					<h3>数量：<em class="positive" ng-bind="item.bean"></em></h3>
+					<div class="flex bottom"><p class="flex_1" ng-bind="item.createtime*1000 | date:'yyyy-MM-dd HH:mm'"></p><span><i ng-if="select == 1">转给</i><i ng-if="select == 2">来自</i>ID：{{item.giveUid}}</span></div>
+				</li>
+			</ul>
+		</div>
+
+		<ion-infinite-scroll ng-if="!noMore" on-infinite="loadMore()" distance="-1%" immediate-check="false">
+		</ion-infinite-scroll>
+	</ion-content>
+</ion-view>

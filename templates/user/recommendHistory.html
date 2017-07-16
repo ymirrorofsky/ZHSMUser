@@ -1,0 +1,26 @@
+<ion-view view-title="推荐记录" hide-nav-bar="true" hide-back-button="true">
+	<ion-header-bar class="bar-assertive header-back">
+		<div class="buttons">
+			<button class="button iconfont icon-back1 button-clear" ng-click="$ionicGoBack()">返回</button>
+		</div>
+		<h1 class="title">推荐记录</h1>
+	</ion-header-bar>
+	<ion-content class="bodybg-normal">
+		<ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"></ion-refresher>
+
+		<div class="common-empty" ng-if="orderEmpty">什么也没有...</div>
+		<div class="yd-repo-list yd-dona-list" ng-if="!orderEmpty">
+			<ul>
+				<li ng-repeat="item in recommendList">
+					<a href="javascript:" class="flex">
+						<p class="flex_1"><span class="positive" ng-bind="item.mobile || '暂无'"></span><span class="reco-id">推荐ID：{{item.uid}}</span></p>
+						<span ng-bind="item.createtime*1000 | date:'yyyy-MM-dd HH:mm'"></span>
+					</a>
+				</li>
+			</ul>
+		</div>
+
+		<ion-infinite-scroll ng-if="!noMore" on-infinite="loadMore()" distance="-1%" immediate-check="false">
+		</ion-infinite-scroll>
+	</ion-content>
+</ion-view>

@@ -1,0 +1,52 @@
+<ion-view view-title="关于我们" hide-nav-bar="true">
+
+	<ion-header-bar class="bar-calm header-back">
+		<div class="buttons">
+			<button class="button iconfont icon-back1 button-clear" ng-click="$ionicGoBack()">返回</button>
+		</div>
+		<h1 class="title">关于我们</h1>
+	</ion-header-bar>
+
+	<ion-content class="bodybg-normal">
+		<div class="yd-about-avater">
+			<div class="img">
+				<img ng-src="{{version.versionLogo}}" alt="" />
+			</div>
+			<div class="txt">
+				当前版本<br>
+				{{version.version}}
+			</div>
+		</div>
+
+		<ul class="yd-about-cont">
+			<li class="flex">
+				<a href="tel:{{version.CSH}}" class="flex">
+					<b class="ion-android-call t_icon calm"></b>
+					<h3 class="flex_1">客服电话</h3>
+					<p>{{version.CSH}}</p>
+					<i class="ion-ios-arrow-right t_arrow_right"></i>
+				</a>
+			</li>
+			<li class="flex">
+				<a href="http://wpa.qq.com/msgrd?v=3&uin={{version.QQ}}&site=qq&menu=yes" class="flex">
+					<b class="iconfont icon-service t_icon calm"></b>
+					<h3 class="flex_1">在线客服</h3>
+					<p>{{version.QQ}}</p>
+					<i class="ion-ios-arrow-right t_arrow_right"></i>
+				</a>
+			</li>
+			<li ng-click="getUpdate()"  class="flex">
+				<a href="javascript:" class="flex">
+					<b class="ion-upload calm"></b>
+					<h3 class="flex_1">检查更新</h3>
+					<p>立即检查</p>
+					<i class="ion-ios-arrow-right t_arrow_right"></i>
+				</a>
+			</li>
+		</ul>
+		<div class="show">
+
+		</div>
+	</ion-content>
+
+</ion-view>

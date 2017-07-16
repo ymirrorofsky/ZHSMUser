@@ -1,0 +1,22 @@
+<ion-view title="商家二维码" hide-nav-bar="true" hide-back-button="true">
+
+	<ion-header-bar class="bar-assertive header-back">
+		<div class="buttons">
+			<button class="button iconfont icon-back1 button-clear" ng-click="$ionicGoBack()">返回</button>
+		</div>
+		<h1 class="title">商家二维码</h1>
+	</ion-header-bar>
+
+	<ion-content>
+			<div class="yd-shop-qrcode">
+				<h3 class="positive" ng-bind="shopQrcode.message"></h3>
+				<img ng-src="{{shopQrcode.url}}">
+			</div>
+		<div class="shops-loginInfo" ng-if = 'shopQrcode.status.isShopHidden == 1'>
+			<h3>商家登录信息</h3>
+			<p>商家登录地址：{{shopQrcode.shopInfo.loginUrl}}</p>
+			<p>登录账号：{{shopQrcode.shopInfo.username}}</p>
+			<p>登录密码：{{shopQrcode.shopInfo.password}}</p>
+		</div>
+	</ion-content>
+</ion-view>

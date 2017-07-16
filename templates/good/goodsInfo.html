@@ -1,0 +1,99 @@
+<ion-view title="商品详情" hide-nav-bar="true" hide-back-button="true">
+
+	<ion-header-bar class="bar-calm header-back">
+		<div class="buttons">
+			<button class="button iconfont icon-back1 button-clear" ng-click="$ionicGoBack()">返回</button>
+		</div>
+		<h1 class="title">商品详情</h1>
+	</ion-header-bar>
+
+	<ion-content ng-if="applyBol" style="top:44px">
+		<ion-slide-box delegate-handle="slideimgs" does-continue="true" show-pager="true">
+			<ion-slide ng-repeat="img in goodsdetail.slide">
+				<img ng-src="{{img}}" width="100%" class="banner-img" style="max-height: 200px;">
+			</ion-slide>
+		</ion-slide-box>
+		<div class="shops-detai-header" ng-if="!goodsdetail.slide">
+			<img src="img/wuimg.png" style='max-height:220px'>
+		</div>
+		<div class="shops-detai-middle">
+
+			<div id="goods-model">
+				<dl>
+					<dt class="">
+						<p ng-bind="goodsdetail.goodsName"></p>
+						<!-- <img ng-src="{{goodsdetail.thumb}}"/>-->
+						<p>
+							<span></span>
+							<span  style="color:#ff5b1f;font-size: 25px;"> ¥<i>{{ goodsdetail.spe_price| number:2}}</i> </span>
+							<span>市场价&nbsp;¥{{ goodsdetail.marketprice| number:2}}</span>
+						</p>
+						<!--  <h4>库存<q data-stock="1305">{{goodsdetail.total}}</q>件</h4>-->
+						<!-- <i class="iconfont icon-close" ng-click="popover.hide()"></i>-->
+					</dt>
+					<dd class="goodsinfo-desc" style="padding-top:0;background: #ff5b1f;border-bottom:none">
+						<h4 style="text-align:center;color:#fff">商品描述</h4>
+						<p class="" ng-bind="goodsdetail.goodsDesc" style="border-bottom:none">
+						</p>
+					</dd>
+					<!--<dd class="clr">
+						<h5 style="float:left">购买数量：</h5>
+						<div class="goods-op" id="goods-op">
+							<i class="iconfont icon-move" ng-click="minusNum()"></i>
+							<input type="text" id="special" ng-model="buyNum">
+							<i class="iconfont icon-add" ng-click="addNum()"></i>
+						</div>
+					</dd>
+					<dd class="clr">
+						<h5 style="float:left">总价格：</h5>
+						<div class="goods-op" id="">
+							{{goodsdetail.spe_price* buyNum}}
+						</div>
+					</dd>-->
+
+					<!--<button class="button-clear" ng-click="buyGoods()">提交</button>-->
+					<!--<button ng-click="addCart()" ng-if="buyType == 1">确定</button>-->
+					<!--<button ng-click="buyInterim()" ng-if="buyType == 2">确定</button>-->
+					<!--<button ng-click="login()" ng-if="buyType == 3">请先登录</button>-->
+				</dl>
+			</div>
+		</div>
+	</ion-content>
+	<div class="applyBol" ng-if="!applyBol">
+		<ion-header-bar class="bar-calm header-back">
+			<div class="buttons">
+				<button class="button iconfont icon-back1 button-clear" ng-click="showShopDesc()">返回</button>
+			</div>
+			<h1 class="title">联系人信息</h1>
+		</ion-header-bar>
+		<ion-content class="bodybg-normal">
+			<div class="yd-donate-count real-count s-apply-c">
+				<ul>
+					<li>
+						<label>联系人姓名</label>
+						<input type="text" placeholder="请输入联系人姓名" ng-model="contact.name">
+					</li>
+					<li>
+						<label>联系人电话</label>
+						<input type="text" placeholder="请输入联系人姓名" ng-model="contact.phone">
+					</li>
+				</ul>
+			</div>
+		</ion-content>
+	</div>
+	<div class="goodsinfo-bottom">
+		<span class="buymon">
+				<span>总价格：</span>{{goodsdetail.spe_price* buyNum}}
+		</span>
+		<span class="buynum">
+				<span>购买数量：</span>
+		<div class="goods-op" id="goods-op">
+			<i class="iconfont icon-move" ng-click="minusNum()"></i>
+			<input type="text" id="special" ng-model="buyNum">
+			<i class="iconfont icon-add" ng-click="addNum()"></i>
+		</div>
+		</span>
+
+		<button ng-click="buyGoods()" style="background-color:#ff5b1f;position: fixed;right: 0;">立即抢购</button>
+	</div>
+</ion-view>
